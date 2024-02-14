@@ -7,11 +7,60 @@
 
 int main(int argc, char* argv[]){
 
-    printf("hello from main\n");
+    //reading from keyboard
+    FILE *fp; //write to a file, whatever typed from the keyboard.
+    char ch;  //reads the characters from the file
+    char* output; // the file we are gone output to
 
-    scanners();
-    hellotestscanner();
+    //reading from file
+    FILE* filepointer; //file pointer
+    char filechar;	//get the characters
 
+//if arg is greater than two, meaning more than one file exit
+    if(argc > 2){
+        printf("Error number of arguments!!\n");
+        return EXIT_FAILURE;
+    }
+
+    //read from the keyboard
+    if(argv[1] == NULL) {
+
+        output = "out"; // for the output name/filestream
+        fp = fopen(output, "w");
+        ch = getchar();
+
+        //check to see if everything is okay with writing to a file
+        if(fp == NULL){
+            printf("Error opening the file\n");
+            return EXIT_FAILURE;
+        }
+
+        // put them in a file
+        while(ch != EOF){
+            fputc(ch, fp);
+            ch = getchar();
+        }
+        fclose(fp); //closed the fp (file pointer for writing)
+
+    }else{
+        // read from the files
+        output = argv[1];  //file we got from the command line defined uptop
+        filepointer = fopen(output,"r");
+        if(filepointer == NULL){
+            printf("Error opening the file\n");
+            return EXIT_FAILURE;
+        }
+
+        printf("\ncharacters in the file \n");
+        //loop through and print the characters from file
+        while((filechar = fgetc(filepointer)) != EOF){
+            // ASCII check in the file if there is special character
+                printf("%c", filechar);
+            }
+    }
+
+
+    fclose(filepointer);
     return 0;
 
-}
+}// end of main
