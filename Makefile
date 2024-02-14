@@ -8,7 +8,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) -o $(TARGET) $(OBJS)
 
-P0.o: P0.cpp
+P1.o: P1.cpp
 	$(CC) $(CFLAGS) -c P1.cpp
 
 scanner.o: scanner.cpp scanner.h
