@@ -9,11 +9,9 @@ int main(int argc, char* argv[]){
 
     printf("hello from main\n");
 
-    void function1call = scanners();
-    void function2call = hellotestscanner();
+    scanners();
+    hellotestscanner();
 
-    printf("function 1 call: ", function1call);
-    printf("function 2 call: ", function2call);
-
+    return 0;
 
 }
