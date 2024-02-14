@@ -3,5 +3,5 @@
 //
 
 void hellotestscanner(){
-    printf("hello from testScanner, checking on linkage!!\n")
+    printf("hello from testScanner, checking on linkage!!\n");
 }
