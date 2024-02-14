@@ -50,7 +50,7 @@ int main(int argc, char* argv[]){
         }
 
         printf("\ncharacters in the file \n");
-        loop through and print the characters from file
+        //loop through and print the characters from file
         while((filechar = fgetc(filepointer)) != EOF){
                 printf("%c", filechar);
             }
