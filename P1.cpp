@@ -24,7 +24,7 @@ int main(int argc, char* argv[]){
 
     //read from the keyboard
     if(argv[1] == NULL) {
-        printf("can i get in here !!1\n")
+        printf("can i get in here !!1\n");
 //        output = "out"; // for the output name/filestream
 //        fp = fopen(output, "w");
 //        ch = getchar();
