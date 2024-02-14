@@ -23,7 +23,7 @@ int main(int argc, char* argv[]){
     }
 
     //read from the keyboard
-    if(argv[1] == NULL) {
+    if(argc == 1) {
         printf("can i get in here !!1\n");
 //        output = "out"; // for the output name/filestream
 //        fp = fopen(output, "w");
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]){
 
     }else{
         // read from the files
-        output = argv[1];  //file we got from the command line defined uptop
+        output = argv[1];  //file we got from the command line
         filepointer = fopen(output,"r");
         if(filepointer == NULL){
             printf("Error opening the file\n");
@@ -50,13 +50,14 @@ int main(int argc, char* argv[]){
         }
 
         printf("\ncharacters in the file \n");
-        //loop through and print the characters from file
-//        while((filechar = fgetc(filepointer)) != EOF){
-//                printf("%c", filechar);
-//            }
+        loop through and print the characters from file
+        while((filechar = fgetc(filepointer)) != EOF){
+                printf("%c", filechar);
+            }
+        fclose(filepointer);
     }
 //
-    fclose(filepointer);
+
     return 0;
 
 }// end of main
