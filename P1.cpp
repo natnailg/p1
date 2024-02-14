@@ -23,18 +23,19 @@ int main(int argc, char* argv[]){
     }
 
     //read from the keyboard
-    if(argc == 1) {
+    if(argv[1] == NULL) {
         output = "out"; // for the output name/filestream
         fp = fopen(output, "w");
-
+        ch = getchar();
         //check to see if everything is okay with writing to a file
-        if(fp == NULL){
-            printf("Error opening the file\n");
-            return EXIT_FAILURE;
-        }
+//        if(fp == NULL){
+//            printf("Error opening the file\n");
+//            return EXIT_FAILURE;
+//        }
         // put them in a file
         while(ch != EOF){
             fputc(ch, fp);
+            ch = getchar();
         }
         fclose(fp); //closed the fp (file pointer for writing)
 
@@ -49,10 +50,9 @@ int main(int argc, char* argv[]){
 
         printf("\ncharacters in the file \n");
         //loop through and print the characters from file
-        while((filechar = fgetc(filepointer)) != EOF){
-            // ASCII check in the file if there is special character
-                printf("%c", filechar);
-            }
+//        while((filechar = fgetc(filepointer)) != EOF){
+//                printf("%c", filechar);
+//            }
     }
 //
     fclose(fp); //closed the fp (file pointer for writing)
