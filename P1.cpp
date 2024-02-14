@@ -23,8 +23,7 @@ int main(int argc, char* argv[]){
     }
 
     //read from the keyboard
-    if(argv[1] == NULL) {
-
+    if(argc == 1) {
         output = "out"; // for the output name/filestream
         fp = fopen(output, "w");
 
@@ -36,7 +35,6 @@ int main(int argc, char* argv[]){
         // put them in a file
         while(ch != EOF){
             fputc(ch, fp);
-            ch = getchar();
         }
         fclose(fp); //closed the fp (file pointer for writing)
 
