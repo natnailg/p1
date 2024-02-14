@@ -58,7 +58,7 @@ int main(int argc, char* argv[]){
                 printf("%c", filechar);
             }
     }
-
+//
 
     fclose(filepointer);
     return 0;
