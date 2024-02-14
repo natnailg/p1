@@ -24,16 +24,15 @@ int main(int argc, char* argv[]){
 
     //read from the keyboard
     if(argc == 1) {
-        printf("can i get in here !!1\n");
         output = "out"; // for the output name/filestream
         fp = fopen(output, "w");
         ch = getchar();
-//        check to see if everything is okay with writing to a file
+        //check to see if everything is okay with writing to a file
         if(fp == NULL){
             printf("Error opening the file\n");
             return EXIT_FAILURE;
         }
-//        // put them in a file
+        // put them in a file
         while(ch != EOF){
             fputc(ch, fp);
             ch = getchar();
@@ -56,7 +55,12 @@ int main(int argc, char* argv[]){
             }
         fclose(filepointer);
     }
-//
+
+
+
+
+    //call testScanner()
+    //testScanner();
 
     return 0;
 
