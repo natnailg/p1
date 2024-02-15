@@ -5,6 +5,6 @@
 #ifndef P1_TESTSCANNER_H
 #define P1_TESTSCANNER_H
 
-void hellotestscanner();
+void hellotestscanner(struct Token );
 
 #endif

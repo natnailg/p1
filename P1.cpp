@@ -16,6 +16,7 @@ int main(int argc, char* argv[]){
     FILE* filepointer; //file pointer
     char filechar;	//get the characters
 
+
 //if arg is greater than two, meaning more than one file exit
     if(argc > 2){
         printf("Error number of arguments!!\n");
@@ -58,9 +59,9 @@ int main(int argc, char* argv[]){
 
 
 
-
+    Token.tokenId = EOFtk;
     //call testScanner()
-    //testScanner();
+    hellotestscanner(Token);
 
     return 0;
 

@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 //
-void hellotestscanner(){
-    printf("hello from testScanner, checking on linkage!!\n");
+void hellotestscanner(struct Token tokens){
+    printf("Token id: %d");
 }
