@@ -9,6 +9,9 @@
 #include "scanner.h"
 
 
+const int MAX_INSTANCE_TOKEN = 250;
+
+
 //defining token id's using enum
 typedef enum{
     EOFtk = 1001,  // end of file
@@ -17,11 +20,10 @@ typedef enum{
     T3_tk = 1004  // . ! , ,; ? ?$ * 8'
 }tokenID;
 
-const int MAX_INSTANCE_TOKEN = 250;
 // for each token we are going to need the TokenID, TokenInstance, line#
 struct Token{
     tokenID tokenId;
     char tokeninstance[MAX_INSTANCE_TOKEN];  // store them in an array
     int line_num;
-}Token;
+};
 #endif

@@ -58,10 +58,10 @@ int main(int argc, char* argv[]){
     }
 
 
-
-    Token.tokenId = EOFtk;
+    struct Token tokens;
+    tokens.tokenId = EOFtk;
     //call testScanner()
-    hellotestscanner(Token);
+    hellotestscanner(tokens);
 
     return 0;
 

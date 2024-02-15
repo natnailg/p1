@@ -3,7 +3,9 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
+#include "testScanner.h"
+//#include "token.h"
 //
-void hellotestscanner(struct Token tokens){
-    printf("Token id: %d");
+void hellotestscanner(struct Token mytokens){
+    printf("Token EOF: %d",mytokens.tokenId);
 }
