@@ -7,5 +7,5 @@
 //#include "token.h"
 //
 void hellotestscanner(struct Token mytokens){
-    printf("Token EOF: %d",mytokens.tokenId);
+    printf("Token EOF: %d\n",mytokens.tokenId);
 }

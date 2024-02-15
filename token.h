@@ -14,11 +14,12 @@ const int MAX_INSTANCE_TOKEN = 250;
 
 //defining token id's using enum
 typedef enum{
-    EOFtk = 1001,  // end of file
-    T1_tk = 1002,  // beings (a-z, A-Z) followed by one or more digits
-    T2_tk = 1003,  // beings with % and must have one or more digits
-    T3_tk = 1004  // . ! , ,; ? ?$ * 8'
+    EOFtk,  // end of file
+    T1_tk,  // beings (a-z, A-Z) followed by one or more digits
+    T2_tk,  // beings with % and must have one or more digits
+    T3_tk  // . ! , ,; ? ?$ * 8'
 }tokenID;
+
 
 // for each token we are going to need the TokenID, TokenInstance, line#
 struct Token{
