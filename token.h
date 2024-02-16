@@ -8,7 +8,6 @@
 #include "testScanner.h"
 #include "scanner.h"
 
-
 const int MAX_INSTANCE_TOKEN = 250;
 
 

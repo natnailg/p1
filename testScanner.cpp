@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include "testScanner.h"
 
-//
-//
-//void hellotestscanner(struct Token mytokens, const char* okenNames[]){
-//    printf("Token EOF: %c-----%c\n",mytokens.tokenId, okenNames[mytokens.tokenId]);
-//}
+
+
+void token_description(struct Token mytokens){
+    printf("Token description: %s\n", tokenNames[mytokens.tokenId]);
+}

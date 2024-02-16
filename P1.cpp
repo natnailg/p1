@@ -55,15 +55,15 @@ int main(int argc, char* argv[]){
                 printf("%c", filechar);
             }
         fclose(filepointer);
-    }
+    }//end of else reading from file.
 
 
     struct Token tokens;
     tokens.tokenId = EOFtk;
     //call testScanner()
-//    hellotestscanner(tokens, tokenNames);
+    token_description(tokens);
 
-    printf("toke description: %s\n", tokenNames[tokens.tokenId]);
+//    printf("toke description: %s\n", tokenNames[tokens.tokenId]);
     return 0;
 
 }// end of main
