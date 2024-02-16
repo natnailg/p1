@@ -7,6 +7,6 @@
 
 
 
-void token_description(struct Token mytokens){
-    printf("Token description: %s\n", tokenNames[mytokens.tokenId]);
+void token_description(struct Token tokens){
+    printf("Token description: %s\n", tokenNames[tokens.tokenId]);
 }
