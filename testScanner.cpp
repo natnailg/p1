@@ -6,7 +6,7 @@
 #include "testScanner.h"
 
 //
-
-void hellotestscanner(struct Token mytokens, const char* okenNames[]){
-    printf("Token EOF: %c-----%c\n",mytokens.tokenId, okenNames[mytokens.tokenId]);
-}
+//
+//void hellotestscanner(struct Token mytokens, const char* okenNames[]){
+//    printf("Token EOF: %c-----%c\n",mytokens.tokenId, okenNames[mytokens.tokenId]);
+//}
