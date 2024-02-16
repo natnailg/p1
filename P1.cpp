@@ -61,8 +61,9 @@ int main(int argc, char* argv[]){
     struct Token tokens;
     tokens.tokenId = EOFtk;
     //call testScanner()
-    hellotestscanner(tokens, tokenNames);
+//    hellotestscanner(tokens, tokenNames);
 
+    printf("toke description: %s\n", tokenNames[tokens.tokenId]);
     return 0;
 
 }// end of main
