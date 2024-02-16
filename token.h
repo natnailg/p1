@@ -19,7 +19,8 @@ typedef enum{
     T2_tk,  // beings with % and must have one or more digits
     T3_tk  // . ! , ,; ? ?$ * 8'
 }tokenID;
-
+//string tokenNames[] = {"T1 token", "T1 token", "T1 token"};
+const char* tokenNames[] = {"EOF token","T1 token","T2 token", "T2 token"};
 
 // for each token we are going to need the TokenID, TokenInstance, line#
 struct Token{

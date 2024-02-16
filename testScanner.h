@@ -6,6 +6,6 @@
 #define P1_TESTSCANNER_H
 #include "token.h"
 
-void hellotestscanner(struct Token );
+void hellotestscanner(struct Token, const char* tokenNames[] );
 
 #endif
