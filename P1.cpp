@@ -63,6 +63,7 @@ int main(int argc, char* argv[]){
     tokens.tokenId = EOFtk;
     //call testScanner()
     token_description(tokens);
+    printtable();
 
 //    printf("toke description: %s\n", tokenNames[tokens.tokenId]);
     return 0;
