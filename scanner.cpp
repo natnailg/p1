@@ -40,7 +40,7 @@ int table [12][12]= { //had to do 12 for the columns
 void printtable() {
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 12; j++) {
-            printf("%d", table[i][j]);
+            printf("%d  ", table[i][j]);
         }
         printf("\n");
     }
