@@ -5,10 +5,6 @@
 #ifndef P1_TOKEN_H
 #define P1_TOKEN_H
 
-
-
-
-
 #include "testScanner.h"
 #include "scanner.h"
 
@@ -31,4 +27,5 @@ struct Token{
     char tokeninstance[MAX_INSTANCE_TOKEN];  // store them in an array
     int line_num;
 };
+
 #endif

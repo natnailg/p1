@@ -21,6 +21,6 @@ void printtable();
 #define END_OF_FILE     11
 
 void scanners();
-
-
+int mapingchar(char );
+void readFromFile(char* file);
 #endif //P1_SCANNER_H

@@ -64,6 +64,7 @@ int main(int argc, char* argv[]){
     //call testScanner()
     token_description(tokens);
     printtable();
+    readFromFile(output);
 
 //    printf("toke description: %s\n", tokenNames[tokens.tokenId]);
     return 0;
