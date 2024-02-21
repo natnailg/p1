@@ -3,7 +3,7 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
-#include "Scanner.h"
+#include "scanner.h"
 
 const char* tokenNames[] = {"EOF token","T1 token","T2 token", "T2 token"};
 

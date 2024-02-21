@@ -14,7 +14,7 @@ P1.o: P1.cpp
 scanner.o: testScanner.cpp testScanner.h
 	$(CC) $(CFLAGS) -c scanner.cpp
 
-testScanner.o: Scanner.cpp Scanner.h
+testScanner.o: scanner.cpp scanner.h
 	$(CC) $(CFLAGS) -c testScanner.cpp
 
 clean:
