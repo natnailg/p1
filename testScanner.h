@@ -8,7 +8,8 @@
 void printtable();
 //states
 const int LETTER = 0;
-const int PERCENTAGE = 1;
+const int DIGIT = 1;
+const int PERCENTAGE = 2;
 const int DOT_OR_EXCLAMATION  = 3;
 const int COMMA = 4;
 const int SEMICOLON = 5;
