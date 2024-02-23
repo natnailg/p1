@@ -133,7 +133,7 @@ void readFromFile(char* filename) {
     }
     char input_char;
     int result;
-    int lineCount = 0; // Initialize line count
+    int lineCount = 1; // Initialize line count
 
     // Keep reading characters until EOF is encountered
     while ((input_char = fgetc(file)) != EOF) {
