@@ -123,7 +123,7 @@ void printCharacterType(char c, int result) {
             printf("Character %c is an unknown character.\n", c);
     }
 }
-
+//
 void readFromFile(char* filename) {
     FILE* file = fopen(filename, "r"); // Open the file in read mode
 
@@ -133,7 +133,7 @@ void readFromFile(char* filename) {
     }
     char input_char;
     int result;
-    int lineCount = 1; // Initialize line count
+    int lineCount = 1; // Initialize line count to 1
 
     // Keep reading characters until EOF is encountered
     while ((input_char = fgetc(file)) != EOF) {
