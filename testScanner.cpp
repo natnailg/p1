@@ -123,7 +123,7 @@ void printCharacterType(char c, int result) {
             printf("Character %c is an unknown character.\n", c);
     }
 }
-//
+//read fom comments removed file and map them?
 void readFromFile(char* filename) {
     FILE* file = fopen(filename, "r"); // Open the file in read mode
 
@@ -137,7 +137,6 @@ void readFromFile(char* filename) {
 
     // Keep reading characters until EOF is encountered
     while ((input_char = fgetc(file)) != EOF) {
-
 
             result = mapingchar(input_char);
             if (result == -1) {
