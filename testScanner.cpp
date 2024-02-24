@@ -128,9 +128,8 @@ void printCharacterType(char c, int result, int line) {
 
 
 
-//read fom comments removed file and map them?
+// Function to read from file and print strings
 void readFromFile(char* filename) {
-
     FILE *file = fopen(filename, "r"); // Open the file in read mode
     if (file == NULL) {
         printf("Error opening file.\n");
@@ -140,29 +139,33 @@ void readFromFile(char* filename) {
     char input_char;
     struct Token token;
     int lineCount = 1; // Initialize line count to 1
-    int index = 0; // to keep track of the crrent position in tokeninstance
+    int index = 0; // to keep track of the current position in tokeninstance
 
     // Keep reading characters until EOF is encountered
-    while ((input_char = fgetc(file))) {
+    while ((input_char = fgetc(file)) != EOF) {
         if (input_char == '\n') {
-            token.tokeninstance[index] = '\0';
+            token.tokeninstance[index] = '\0'; // Null-terminate the token
             printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
-            //reset the token for the next line
-            index = 0; //reset index
-            lineCount++; //increment line count
+            // Reset the token for the next line
+            index = 0; // Reset index
+            lineCount++; // Increment line count
         } else {
-            //add characters to the token instance array/
+            // Add characters to the token instance array
             token.tokeninstance[index++] = input_char;
+            // Check for tokeninstance overflow
+            if (index >= MAX_INSTANCE_TOKEN) {
+                printf("Error: Maximum token size exceeded.\n");
+                return;
+            }
         }
     }
     fclose(file);
-    printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
+    // Print the string for the last line (if any)
+    if (index > 0) {
+        token.tokeninstance[index] = '\0'; // Null-terminate the token
+        printf("Line %d: %s\n", lineCount, token.tokeninstance);
+    }
 }
-
-
-
-
-
 
 
 
