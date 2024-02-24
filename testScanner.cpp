@@ -6,6 +6,7 @@
 #include "scanner.h"
 #include "token.h"
 
+char nextChar;
 // we need a map function here that is going to read in the char, and it's going to be based on what that char is,
 // it's going map it to a number that I decide. > = 0
 
