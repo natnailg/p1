@@ -150,7 +150,7 @@ void readFromFile(char* filename) {
             }
 
         }
-        /
+
     // Print EOF encountered and line count
     printCharacterType('\0', END_OF_FILE, lineCount);   // there is no ascii value to show it is the END of file.
     printf("Number of lines: %d\n", lineCount);
