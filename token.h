@@ -19,7 +19,7 @@ typedef enum{
     T3_tk  // . ! , ,; ? ?$ * 8'
 }tokenID;
 extern const char* tokenNames[];
-const char* tokenNames[] = {"EOF token","T1 token","T2 token", "T2 token"};
+//const char* tokenNames[] = {"EOF token","T1 token","T2 token", "T2 token"};
 
 // for each token we are going to need the TokenID, TokenInstance, line#
 struct Token{
