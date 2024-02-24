@@ -139,6 +139,7 @@ void readFromFile(char* filename) {
     char input_char;
     struct Token token;
     int lineCount = 1; // Initialize line count to 1
+    token.line_num =1;
     int index = 0; // to keep track of the current position in tokeninstance
 
     // Keep reading characters until EOF is encountered
@@ -146,9 +147,12 @@ void readFromFile(char* filename) {
         if (input_char == '\n') {
             token.tokeninstance[index] = '\0'; // Null-terminate the token
             printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
+            printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
+
             // Reset the token for the next line
             index = 0; // Reset index
             lineCount++; // Increment line count
+            token.line_num++;
         } else {
             // Add characters to the token instance array
             token.tokeninstance[index++] = input_char;
@@ -160,49 +164,9 @@ void readFromFile(char* filename) {
         }
     }
     fclose(file);
-    // Print the string for the last line (if any)
-    if (index > 0) {
-        token.tokeninstance[index] = '\0'; // Null-terminate the token
-        printf("Line %d: %s\n", lineCount, token.tokeninstance);
-    }
 }
 
-
-
-////read fom comments removed file and map them?
-//void readFromFile(char* filename) {
-//
-//    FILE* file = fopen(filename, "r"); // Open the file in read mode
-//    if (file == NULL) { printf("Error opening file.\n");  return;  }
-//
-//    char input_char;
-//    int result;
-//    int lineCount = 1; // Initialize line count to 1
-//
-//    // Keep reading characters until EOF is encountered
-//    while ((input_char = fgetc(file)) != EOF) {
-//
-//            result = mapingchar(input_char);
-//            if (result == -1) {
-//                printf("Error: Unknown character encountered.\n");
-//                return;
-//            } else {
-//                printCharacterType(input_char, result, lineCount);
-//            }
-//
-//            // we need to increment the line count if new lin char is encountering
-//            if (input_char == '\n') {
-//                lineCount++;
-//            }
-//
-//        }
-//
-//    // Print EOF encountered and line count
-//    printCharacterType('\0', END_OF_FILE, lineCount);   // there is no ascii value to show it is the END of file.
-//    printf("Number of lines: %d\n", lineCount);
-//}
-
-//lets get rid of all the comments in, they will start with # and end with one.
+//let us get rid of all the comments in, they will start with # and end with one.
 void removcomments(char *inputfile, char *outputfile) {
 
     FILE *input_file = fopen(inputfile, "r");
