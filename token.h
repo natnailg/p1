@@ -5,7 +5,6 @@
 #ifndef P1_TOKEN_H
 #define P1_TOKEN_H
 
-#include "scanner.h"
 #include "testScanner.h"
 
 const int MAX_INSTANCE_TOKEN = 250;
