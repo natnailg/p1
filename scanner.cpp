@@ -84,7 +84,6 @@ tokenID token(int num, const char* fullString) {
             printf("Token: %s - Full String: %s\n", tokenNames[0], fullString);
             return unknown;
     }
-    printf("token function at the bottom\n");
 }
 
 

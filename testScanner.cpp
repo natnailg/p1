@@ -27,6 +27,9 @@ void readFromFile(char* filename) {
     while ((input_char = fgetc(file)) != EOF) {
         if (input_char == '\n') {
             token.tokeninstance[index] = '\0'; // Null-terminate the token
+
+            tokenID token_id = FADriver(token); // Pass the token to FADriver
+
             printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
             printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
 
