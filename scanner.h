@@ -25,7 +25,7 @@ const int END_OF_FILE = 11;
 
 int mapingchar(char ); //mapping switch statement
 tokenID token(int , const char* );
-tokenID FADriver(char *);
+tokenID FADriver(char );
 void token_description(struct Token);
 //tokenID FADriver();
 

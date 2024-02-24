@@ -29,13 +29,17 @@ void readFromFile(char* filename) {
         if (input_char == '\n') {
             token.tokeninstance[index] = '\0'; // Null-terminate the token
 
-            nextChar = (token.tokeninstance[0]); // Set nextChar to the first character of the token
-            printf("from the readerfile -. %c\n", nextChar);
+//            nextChar = (token.tokeninstance[0]); // Set nextChar to the first character of the token
+//            printf("from the readerfile -. %c\n", nextChar);
+//
+//            FADriver(token.tokeninstance);
+            // Iterate over the characters in tokeninstance and send each character to the driver
+            for (int i = 0; token.tokeninstance[i] != '\0'; i++) {
+                FADriver(token.tokeninstance[i]);
+            }
 
-            FADriver(token.tokeninstance);
-
-            printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
-            printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
+//            printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
+//            printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
 
             // Reset the token for the next line
             index = 0; // Reset index
