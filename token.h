@@ -10,7 +10,6 @@
 
 const int MAX_INSTANCE_TOKEN = 250;
 
-
 //defining token id's using enum
 typedef enum{
     EOFtk= 1001,  // end of file
@@ -28,6 +27,7 @@ struct Token{
     tokenID tokenId;   // to say what type of id
     char tokeninstance[MAX_INSTANCE_TOKEN];  // store them in an array
     int line_num; // for the line number
+#include "scanner.h"
 };
 
 
