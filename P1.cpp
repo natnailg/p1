@@ -11,7 +11,7 @@ int main(int argc, char* argv[]){
     //reading from keyboard
     FILE *fp; //write to a file, whatever typed from the keyboard.
     char ch;  //reads the characters from the file
-    char* output; // the file we are gone output to
+    char* Readin; // the file we are gone Readin to
 
     //reading from file
     FILE* filepointer; //file pointer
@@ -26,8 +26,8 @@ int main(int argc, char* argv[]){
 
     //read from the keyboard
     if(argc == 1) {
-        output = "out"; // for the output name/filestream
-        fp = fopen(output, "w");
+        Readin = "out"; // for the Readin name/filestream
+        fp = fopen(Readin, "w");
         ch = getchar();
         //check to see if everything is okay with writing to a file
         if(fp == NULL){
@@ -43,8 +43,8 @@ int main(int argc, char* argv[]){
 
     }else{
         // read from the files
-        output = argv[1];  //file we got from the command line
-        filepointer = fopen(output,"r");
+        Readin = argv[1];  //file we got from the command line
+        filepointer = fopen(Readin, "r");
         if(filepointer == NULL){
             printf("Error opening the file\n");
             return EXIT_FAILURE;
@@ -64,7 +64,11 @@ int main(int argc, char* argv[]){
     //call testScanner()
     token_description(tokens);
     printtable();
-    readFromFile(output);
+//    readFromFile(Readin); // working
+
+    // call on the removecomments function and give it a newly created file
+    char* outputfile = "output";
+    removcomments(Readin, outputfile);
 
 //    printf("toke description: %s\n", tokenNames[tokens.tokenId]);
     return 0;

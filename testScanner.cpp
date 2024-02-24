@@ -137,24 +137,65 @@ void readFromFile(char* filename) {
 
     // Keep reading characters until EOF is encountered
     while ((input_char = fgetc(file)) != EOF) {
-        result = mapingchar(input_char);
-        if (result == -1) {
-            printf("Error: Unknown character encountered.\n");
-            return;
-        } else {
-            printCharacterType(input_char, result);
-        }
 
-        // we need to increment the line count if new lin char is encountering
-        if (input_char == '\n') {
-            lineCount++;
-        }
 
+            result = mapingchar(input_char);
+            if (result == -1) {
+                printf("Error: Unknown character encountered.\n");
+                return;
+            } else {
+                printCharacterType(input_char, result);
+            }
+
+            // we need to increment the line count if new lin char is encountering
+            if (input_char == '\n') {
+                lineCount++;
+            }
+
+        }
         //skip ccommented lines
 
-    }
+
 
     // Print EOF encountered and line count
     printCharacterType('\0', END_OF_FILE);   // there is no ascii value to show it is the END of file.
     printf("Number of lines: %d\n", lineCount);
+}
+
+//lets get rid of all the comments in, they will start with # and end with one.
+void removcomments(char *inputfile, char *outputfile) {
+    FILE *input_file = fopen(inputfile, "r");
+    if (input_file == NULL) {
+        printf("Error opening input file.\n");
+        return;
+    }
+    FILE *output_file = fopen(outputfile, "w");
+    if (output_file == NULL) {
+        printf("Error opening output file.\n");
+        fclose(input_file);
+        return;
+    }
+
+    int input_char;
+    bool comments = false;
+
+    while ((input_char = fgetc(input_file)) != EOF) {
+        if (!comments) {
+            if (input_char != '#') {
+                fputc(input_char, output_file); // Write character to output file if not in a comment
+            } else {
+                comments = true; // Start of comment
+            }
+        } else {
+            if (input_char == '\n') {
+                comments = false; // End of comment when encountering a newline
+            }
+        }
+    }
+
+    fclose(input_file);
+    fclose(output_file);
+
+    readFromFile(outputfile); //passing the char array not the file pointer
+
 }
