@@ -156,6 +156,7 @@ tokenID FADriver(char* tokeninstances) {
 
             printf("before the nextstate: %d ---> %d ---char->%c ---> %s\n", state, column, nextChar, S);
             return token(nextState, S); // Return the token obtained from the token function along with the full string
+            continue;
         } else {
             // Not in final state yet
             state = nextState;
