@@ -50,11 +50,11 @@ int main(int argc, char* argv[]){
             return EXIT_FAILURE;
         }
 
-        printf("\ncharacters in the file \n");
-        //loop through and print the characters from file
-        while((filechar = fgetc(filepointer)) != EOF){
-                printf("%c", filechar);
-            }
+//        printf("\ncharacters in the file \n");
+//        //loop through and print the characters from file
+//        while((filechar = fgetc(filepointer)) != EOF){
+//                printf("%c", filechar);
+//            }
         fclose(filepointer);
     }//end of else reading from file.
 
@@ -62,8 +62,8 @@ int main(int argc, char* argv[]){
     struct Token tokens;
     tokens.tokenId = EOFtk;
     //call testScanner()
-    printf("tooooooto\n");
-    token_description(tokens);
+//    printf("tooooooto\n");
+//    token_description(tokens);
 
 //    readFromFile(Readin); // working
 
