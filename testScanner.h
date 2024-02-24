@@ -5,9 +5,6 @@
 #ifndef P1_TESTSCANNER_H
 #define P1_TESTSCANNER_H
 
-void printtable();
-
-
 void readFromFile(char* file); // read from file and map
 void removcomments(char *, char  *); //remove comments and write to new file.
 
