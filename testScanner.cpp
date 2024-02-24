@@ -3,7 +3,6 @@
 //
 
 #include <stdio.h>
-#include <ctype.h>
 #include "testScanner.h"
 #include "token.h"
 
@@ -82,81 +81,3 @@ void removcomments(char *inputfile, char *outputfile) {
     readFromFile(outputfile); //passing the char array not the file pointer
 
 }
-////////////////////////////////////////////////////////////////////////////////////////////
-int mapingchar(char c) {
-    switch ((int)c) {
-        case 'a' ... 'z': // lowercase letters 'a-z'
-        case 'A' ... 'Z': // uppercase letters 'A-Z'
-            return LETTER;
-        case '0' ... '9': // digits '0' to '9'
-            return DIGIT;
-        case '%': // Percent sign '%'
-            return PERCENTAGE;
-        case '.': // Period '.'
-        case '!': // Exclamation mark '!'
-            return DOT_OR_EXCLAMATION;
-        case ',': // Comma ','
-            return COMMA;
-        case ';': // Semicolon ';'
-            return SEMICOLON;
-        case '?': // Question mark '?'
-            return QUESTION_MARK;
-        case '$': // Dollar sign '$'
-            return DOLLAR_SIGN;
-        case '*': // Asterisk '*'
-            return STAR;
-        case '"': // Double quote '"'
-            return QUOTATION;
-        case ' ': // White space (space)
-        case '\n': // Newline character
-            return WHITESPACE;
-        case '\0': // EOF encountered
-            return END_OF_FILE;
-        default:
-            return -1; // Unknown character
-    }
-}
-
-void printCharacterType(char c, int result, int line) {
-    switch (result) {
-        case LETTER:
-            printf("Character %c is a letter -> line %d.\n", c, line);
-            break;
-        case DIGIT:
-            printf("Character %c is a digit -> line %d.\n", c, line);
-            break;
-        case PERCENTAGE:
-            printf("Character %c is a percentage sign -> line %d.\n", c, line);
-            break;
-        case DOT_OR_EXCLAMATION:
-            printf("Character %c is a period or exclamation mark -> line %d.\n", c, line);
-            break;
-        case COMMA:
-            printf("Character %c is a comma -> line %d.\n", c, line);
-            break;
-        case SEMICOLON:
-            printf("Character %c is a semicolon -> line %d.\n", c, line);
-            break;
-        case QUESTION_MARK:
-            printf("Character %c is a question mark -> line %d.\n", c, line);
-            break;
-        case DOLLAR_SIGN:
-            printf("Character %c is a dollar sign -> line %d.\n", c, line);
-            break;
-        case STAR:
-            printf("Character %c is an asterisk -> line %d.\n", c, line);
-            break;
-        case QUOTATION:
-            printf("Character %c is a double quote -> line %d.\n", c, line);
-            break;
-        case WHITESPACE:
-            printf("Character  is a whitespace -> line %d.\n",  line);
-            break;
-        case END_OF_FILE:
-            printf("EOF encountered -> line %d.\n", line);
-            break;
-        default:
-            printf("Character %c is an unknown character -> line %d.\n", c, line);
-    }
-}
-

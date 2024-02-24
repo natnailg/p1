@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "scanner.h"
 
-const char* tokenNames[] = {"EOF token","T1 token","T2 token", "T2 token"};
+const char* tokenNames[] = {"Unknown token", "EOF token", "T1 token", "T2 token", "T3 token"};
 
 void token_description(struct Token tokens){
     printf("Token description: %s\n", tokenNames[tokens.tokenId]);
