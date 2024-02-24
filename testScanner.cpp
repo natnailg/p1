@@ -37,6 +37,8 @@ int Table [12][12]= { //had to do 12 for the columns
  * t3_final = 1004
  * EOF_tk = 1001
  * */
+
+/*
 void printtable() {
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 12; j++) {
@@ -45,6 +47,7 @@ void printtable() {
         printf("\n");
     }
 }
+*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 int mapingchar(char c) {
@@ -114,7 +117,7 @@ void printCharacterType(char c, int result, int line) {
             printf("Character %c is a double quote -> line %d.\n", c, line);
             break;
         case WHITESPACE:
-            printf("Character  is a whitespace -> line %d.\n", c, line);
+            printf("Character  is a whitespace -> line %d.\n",  line);
             break;
         case END_OF_FILE:
             printf("EOF encountered -> line %d.\n", line);
