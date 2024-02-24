@@ -88,6 +88,7 @@ tokenID token(int num, const char* fullString) {
 
 
 tokenID FADriver() {
+    printf("inside of the finction!!!\n");
     int state = 0;
     int nextState;
     char S[256] = ""; // Assuming maximum token length of 255 characters
