@@ -29,14 +29,9 @@ void readFromFile(char* filename) {
 
             if (input_char == '\n') {
             token.tokeninstance[index] = '\0'; // Null-terminate the token
-//            nextChar = (token.tokeninstance[0]); // Set nextChar to the first character of the token
-//            printf("from the readerfile -. %c\n", nextChar);
-//
-//            FADriver(token.tokeninstance);
-            // Iterate over the characters in tokeninstance and send each character to the driver
-            for (int i = 0; token.tokeninstance[i] != '\0'; i++) {
-                FADriver(token.tokeninstance[i]);
-            }
+
+            nextChar = token.tokeninstance[0];
+            FADriver(token.tokeninstance);
 
 //            printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
 //            printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
@@ -92,3 +87,50 @@ void removcomments(char *inputfile, char *outputfile) {
     readFromFile(outputfile); //passing the char array not the file pointer
 
 }
+//
+//void readFromFile(char* filename) {
+//    FILE *file = fopen(filename, "r"); // Open the file in read mode
+//    if (file == NULL) {
+//        printf("Error opening file.\n");
+//        return;
+//    }
+//
+//    char input_char;
+//    struct Token token;
+//    int lineCount = 1; // Initialize line count to 1
+//    token.line_num =1;
+//    int index = 0; // to keep track of the current position in tokeninstance
+//
+//    // Keep reading characters until EOF is encountered
+//    while ((input_char = fgetc(file)) != EOF) {
+//
+//        if (input_char == '\n') {
+//            token.tokeninstance[index] = '\0'; // Null-terminate the token
+////            nextChar = (token.tokeninstance[0]); // Set nextChar to the first character of the token
+////            printf("from the readerfile -. %c\n", nextChar);
+////
+////            FADriver(token.tokeninstance);
+//            // Iterate over the characters in tokeninstance and send each character to the driver
+//            for (int i = 0; token.tokeninstance[i] != '\0'; i++) {
+//                FADriver(token.tokeninstance[i]);
+//            }
+//
+////            printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
+////            printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
+//
+//            // Reset the token for the next line
+//            index = 0; // Reset index
+//            lineCount++; // Increment line count
+//            token.line_num++;
+//        } else {
+//            // Add characters to the token instance array
+//            token.tokeninstance[index++] = input_char;
+//            // Check for tokeninstance overflow
+//            if (index >= MAX_INSTANCE_TOKEN) {
+//                printf("Error: Maximum token size exceeded.\n");
+//                return;
+//            }
+//        }
+//    }
+//    fclose(file);
+//}

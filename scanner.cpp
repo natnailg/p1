@@ -88,42 +88,42 @@ tokenID token(int num, const char* fullString) {
 }
 
 
-tokenID FADriver(char ch) {
-    printf("Received token string in FADriver: %c\n", ch);
-    int state = 0;
-    int nextState;
-    char S[256] = ""; // Assuming maximum token length of 255 characters
-    int index = 0;
-//    char nextChar = getchar(); // Ensure nextChar is properly initialized
-    while (1) { // Check for end of input
-        int column = mapingchar(nextChar); // Get column index using mappingchar function
-        if (column == -1) {
-            printf("Error: Unknown character.\n");
-            return Error; // Return an error token
-        }
-
-        nextState = Table[state][column];
-        if (nextState < 0) {
-            printf("Error: Negative number from table, something is invalid.\n");
-            return Error; // Return an error token
-        }
-        if (nextState > 1000) {
-            printf("large int found!!\n");
-            // Final state reached, return the token
-            S[index] = '\0'; // Null-terminate the string
-
-
-            printf("before the nextstate: %d ---> %d ---char->%c ---> %s\n", state, column, nextChar, S);
-            return token(nextState, S); // Return the token obtained from the token function along with the full string
-
-
-        } else {
-            // Not in final state yet
-            state = nextState;
-            S[index++] = nextChar; // Append the character to the string
-            nextChar = getchar();
-        }
-    }
+tokenID FADriver(char* tokeninstances) {
+//    printf("Received token string in FADriver: %s\n", tokeninstances);
+//    int state = 0;
+//    int nextState;
+//    char S[256] = ""; // Assuming maximum token length of 255 characters
+//    int index = 0;
+////    char nextChar = getchar(); // Ensure nextChar is properly initialized
+//    while (1) { // Check for end of input
+//        int column = mapingchar(nextChar); // Get column index using mappingchar function
+//        if (column == -1) {
+//            printf("Error: Unknown character.\n");
+//            return Error; // Return an error token
+//        }
+//
+//        nextState = Table[state][column];
+//        if (nextState < 0) {
+//            printf("Error: Negative number from table, something is invalid.\n");
+//            return Error; // Return an error token
+//        }
+//        if (nextState > 1000) {
+//            printf("large int found!!\n");
+//            // Final state reached, return the token
+//            S[index] = '\0'; // Null-terminate the string
+//
+//
+//            printf("before the nextstate: %d ---> %d ---char->%c ---> %s\n", state, column, nextChar, S);
+//            return token(nextState, S); // Return the token obtained from the token function along with the full string
+//
+//
+//        } else {
+//            // Not in final state yet
+//            state = nextState;
+//            S[index++] = nextChar; // Append the character to the string
+//            nextChar = getchar();
+//        }
+//    }
 }
 
 
