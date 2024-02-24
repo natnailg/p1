@@ -26,8 +26,9 @@ struct Token{
     tokenID tokenId;   // to say what type of id
     char tokeninstance[MAX_INSTANCE_TOKEN];  // store them in an array
     int line_num; // for the line number
-#include "scanner.h"
 };
+#include "scanner.h"
+
 
 
 #endif
