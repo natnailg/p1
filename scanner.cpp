@@ -137,7 +137,7 @@ tokenID FADriver(char* tokeninstances) {
     int index = 0;
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 
-    while (nextChar != '\0') { // Loop until the end of the string ('\0') is reached
+    while (1) { // Loop until the end of the string ('\0') is reached
         int column = mapingchar(nextChar); // Get column index using mappingchar function
         if (column == -1) {
             printf("Error: Unknown character.\n");
