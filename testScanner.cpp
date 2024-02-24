@@ -152,7 +152,7 @@ void readFromFile(char* filename) {
             index = 0; //reset index
             lineCount++; //increment line count
         } else {
-            //add characters to the token instance array
+            //add characters to the token instance array/
             token.tokeninstance[index++] = input_char;
         }
     }
