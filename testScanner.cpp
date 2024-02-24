@@ -27,7 +27,7 @@ void readFromFile(char* filename) {
     // Keep reading characters until EOF is encountered
     while ((input_char = fgetc(file)) != EOF) {
 
-            if (input_char == '\n' || input_char == '\0') {
+            if (input_char == '\n') {
             token.tokeninstance[index] = '\0'; // Null-terminate the token
 //            nextChar = (token.tokeninstance[0]); // Set nextChar to the first character of the token
 //            printf("from the readerfile -. %c\n", nextChar);
