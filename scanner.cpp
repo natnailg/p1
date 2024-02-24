@@ -93,7 +93,7 @@ tokenID FADriver(char *token_string) {
     int nextState;
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0;
-    char nextChar = getchar(); // Ensure nextChar is properly initialized
+//    char nextChar = getchar(); // Ensure nextChar is properly initialized
 
     while (1) { // Check for end of input
         printf("inside of the finction!!!\n");
