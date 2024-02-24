@@ -62,7 +62,7 @@ void removcomments(char *inputfile, char *outputfile) {
 
     while ((input_char = fgetc(input_file)) != EOF) {
         if (!comments) {
-            if (input_char != '#' && input_char != ' ' && input_char != '\t' && input_char != '\r' && input_char != '\f' && input_char != '\v') {
+            if (input_char != '#' && input_char != ' ' && input_char != '\t') {
                 fputc(input_char, output_file); // Write character to output file if not in a comment
             } else {
                 comments = true; // Start of comment
