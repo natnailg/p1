@@ -30,8 +30,9 @@ void readFromFile(char* filename) {
             token.tokeninstance[index] = '\0'; // Null-terminate the token
 
             nextChar = (token.tokeninstance[0]); // Set nextChar to the first character of the token
-            printf("%c\n",nextChar);
-            //FADriver(token.tokeninstance);
+            printf("from the readerfile -. %c\n", nextChar);
+
+            FADriver(token.tokeninstance);
 
             printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
             printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string

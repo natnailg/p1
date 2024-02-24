@@ -59,8 +59,7 @@ int main(int argc, char* argv[]){
     }//end of else reading from file.
 
 
-    struct Token tokens;
-    tokens.tokenId = EOFtk;
+
     //call testScanner()
 //    printf("tooooooto\n");
 //    token_description(tokens);

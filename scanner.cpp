@@ -96,7 +96,7 @@ tokenID FADriver(char *token_string) {
 //    char nextChar = getchar(); // Ensure nextChar is properly initialized
 
     while (1) { // Check for end of input
-        printf("inside of the finction!!!\n");
+        printf("inside of the finction!!! %c -----------\n", nextChar);
         int column = mapingchar(nextChar); // Get column index using mappingchar function
         if (column == -1) {
             printf("Error: Unknown character.\n");
@@ -104,12 +104,11 @@ tokenID FADriver(char *token_string) {
         }
 
         nextState = Table[state][column];
-
         if (nextState < 0) {
             printf("Error: Negative number from table, something is invalid.\n");
             return Error; // Return an error token
         }
-        printf("inside of the while!!!\n");
+        printf("inside of the while!!!-!!!!!!!!!!!!!!!! %c\n", nextChar);
 
         if (nextState > 1000) {
             printf("large int found!!\n");
