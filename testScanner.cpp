@@ -25,11 +25,10 @@ void readFromFile(char* filename) {
     int index = 0; // to keep track of the current position in tokeninstance
 
     // Keep reading characters until EOF is encountered
-//    while ((input_char = fgetc(file)) != EOF) {
-        while ((input_char = fgetc(file))) {
-            if (input_char == '\n' || input_char == EOF) {
-            token.tokeninstance[index] = '\0'; // Null-terminate the token
+    while ((input_char = fgetc(file)) != EOF) {
 
+            if (input_char == '\n' || input_char == '\0') {
+            token.tokeninstance[index] = '\0'; // Null-terminate the token
 //            nextChar = (token.tokeninstance[0]); // Set nextChar to the first character of the token
 //            printf("from the readerfile -. %c\n", nextChar);
 //
