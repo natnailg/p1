@@ -25,60 +25,60 @@ int Table [12][12]= { //had to do 12 for the columns
         {1004,1004,1004,1004,1004,11,1004,1004,1004,1004,1004,1004},
         {1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004}
 };
-
-//function for converting large int to tokenType
-tokenID token(int num){
-        switch (num){
-            case 1002:
-                return T1_tk;
-            case 1003:
-                return T2_tk;
-            case 1004:
-                return T3_tk;
-            case 1001:
-                return EOFtk;
-            case -1:
-                return Error;
-            default:
-                return unknown;
-    }
-
-}
-
-// nextchar corresponds to the column of the table
-// state coressponds to the row
-tokenID FADriver(){ //assume nextChar set, and used as column index
-
-    int state = 0; //initial state
-    int nextState;
-    char S[256]=" "; // to append the full string until the token is found
-    int index = 0;
-    while(1){ //not negative and not large value
-        printf("before the nextstate: %d ---> %c ---> %s",state, nextChar, S );
-        nextState = Table[state][nextChar];
-//        S[index]='\0';
-        if (nextState < 0) { //negative
-            printf("Error negative number from table, there is something invalid, check again!!\n");
-            return token(nextState);
-        }
-        if (nextState > 1000){ //LARGE VALUE
-             //final state return the type of statnment
-//                return (token(nextState), S);
-                  return token(nextState);
-
-    }else{ /*not final state */
-            state = nextState;
-            S[index++] = nextChar;
-            nextChar = getchar();
-        }
-
-    }//end oof while loop
-
-}// end of drive func
-
-
-
-
+//
+////function for converting large int to tokenType
+//tokenID token(int num){
+//        switch (num){
+//            case 1002:
+//                return T1_tk;
+//            case 1003:
+//                return T2_tk;
+//            case 1004:
+//                return T3_tk;
+//            case 1001:
+//                return EOFtk;
+//            case -1:
+//                return Error;
+//            default:
+//                return unknown;
+//    }
+//
+//}
+//
+//// nextchar corresponds to the column of the table
+//// state coressponds to the row
+//tokenID FADriver(){ //assume nextChar set, and used as column index
+//
+//    int state = 0; //initial state
+//    int nextState;
+//    char S[256]=" "; // to append the full string until the token is found
+//    int index = 0;
+//    while(1){ //not negative and not large value
+//        printf("before the nextstate: %d ---> %c ---> %s",state, nextChar, S );
+//        nextState = Table[state][nextChar];
+////        S[index]='\0';
+//        if (nextState < 0) { //negative
+//            printf("Error negative number from table, there is something invalid, check again!!\n");
+//            return token(nextState);
+//        }
+//        if (nextState > 1000){ //LARGE VALUE
+//             //final state return the type of statnment
+////                return (token(nextState), S);
+//                  return token(nextState);
+//
+//    }else{ /*not final state */
+//            state = nextState;
+//            S[index++] = nextChar;
+//            nextChar = getchar();
+//        }
+//
+//    }//end oof while loop
+//
+//}// end of drive func
+//
+//
+//
+//
 
 
 
