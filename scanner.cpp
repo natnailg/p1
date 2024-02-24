@@ -73,7 +73,7 @@ tokenID token(int num, const char* fullString) {
             break;
         case 1003:
             printf("Token: %s - Full String: %s\n", tokenNames[3], fullString);
-            return T2_tk;
+            break;
         case 1004:
             printf("i am in token 3\n");
             printf("Token: %s - Full String: %s\n", tokenNames[4], fullString);
