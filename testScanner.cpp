@@ -81,56 +81,54 @@ int mapingchar(char c) {
     }
 }
 
-void printCharacterType(char c, int result) {
+void printCharacterType(char c, int result, int line) {
     switch (result) {
         case LETTER:
-            printf("Character %c is a letter.\n", c);
+            printf("Character %c is a letter -> line %d.\n", c, line);
             break;
         case DIGIT:
-            printf("Character %c is a digit.\n", c);
+            printf("Character %c is a digit -> line %d.\n", c, line);
             break;
         case PERCENTAGE:
-            printf("Character %c is a percentage sign.\n", c);
+            printf("Character %c is a percentage sign -> line %d.\n", c, line);
             break;
         case DOT_OR_EXCLAMATION:
-            printf("Character %c is a period or exclamation mark.\n", c);
+            printf("Character %c is a period or exclamation mark -> line %d.\n", c, line);
             break;
         case COMMA:
-            printf("Character %c is a comma.\n", c);
+            printf("Character %c is a comma -> line %d.\n", c, line);
             break;
         case SEMICOLON:
-            printf("Character %c is a semicolon.\n", c);
+            printf("Character %c is a semicolon -> line %d.\n", c, line);
             break;
         case QUESTION_MARK:
-            printf("Character %c is a question mark.\n", c);
+            printf("Character %c is a question mark -> line %d.\n", c, line);
             break;
         case DOLLAR_SIGN:
-            printf("Character %c is a dollar sign.\n", c);
+            printf("Character %c is a dollar sign -> line %d.\n", c, line);
             break;
         case STAR:
-            printf("Character %c is an asterisk.\n", c);
+            printf("Character %c is an asterisk -> line %d.\n", c, line);
             break;
         case QUOTATION:
-            printf("Character %c is a double quote.\n", c);
+            printf("Character %c is a double quote -> line %d.\n", c, line);
             break;
         case WHITESPACE:
-            printf("Character  is a whitespace.\n", c);
+            printf("Character  is a whitespace -> line %d.\n", c, line);
             break;
         case END_OF_FILE:
-            printf("EOF encountered.\n");
+            printf("EOF encountered -> line %d.\n", line);
             break;
         default:
-            printf("Character %c is an unknown character.\n", c);
+            printf("Character %c is an unknown character -> line %d.\n", c, line);
     }
 }
 //read fom comments removed file and map them?
 void readFromFile(char* filename) {
-    FILE* file = fopen(filename, "r"); // Open the file in read mode
 
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return;
-    }
+    FILE* file = fopen(filename, "r"); // Open the file in read mode
+    if (file == NULL) { printf("Error opening file.\n");  return;  }
+
     char input_char;
     int result;
     int lineCount = 1; // Initialize line count to 1
@@ -143,7 +141,7 @@ void readFromFile(char* filename) {
                 printf("Error: Unknown character encountered.\n");
                 return;
             } else {
-                printCharacterType(input_char, result);
+                printCharacterType(input_char, result, lineCount);
             }
 
             // we need to increment the line count if new lin char is encountering
@@ -152,28 +150,20 @@ void readFromFile(char* filename) {
             }
 
         }
-        //skip ccommented lines
-
-
-
+        /
     // Print EOF encountered and line count
-    printCharacterType('\0', END_OF_FILE);   // there is no ascii value to show it is the END of file.
+    printCharacterType('\0', END_OF_FILE, lineCount);   // there is no ascii value to show it is the END of file.
     printf("Number of lines: %d\n", lineCount);
 }
 
 //lets get rid of all the comments in, they will start with # and end with one.
 void removcomments(char *inputfile, char *outputfile) {
+
     FILE *input_file = fopen(inputfile, "r");
-    if (input_file == NULL) {
-        printf("Error opening input file.\n");
-        return;
-    }
+    if (input_file == NULL) {printf("Error opening input file.\n"); return;}
+
     FILE *output_file = fopen(outputfile, "w");
-    if (output_file == NULL) {
-        printf("Error opening output file.\n");
-        fclose(input_file);
-        return;
-    }
+    if (output_file == NULL) { printf("Error opening output file.\n");  return;}
 
     int input_char;
     bool comments = false;
