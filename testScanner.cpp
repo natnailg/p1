@@ -3,7 +3,6 @@
 //
 
 #include <stdio.h>
-#include <stdlib.h>
 #include "testScanner.h"
 #include "token.h"
 
@@ -38,7 +37,7 @@ int Table [12][12]= { //had to do 12 for the columns
  * EOF_tk = 1001
  * */
 
-/*
+
 void printtable() {
     for (int i = 0; i < 12; i++) {
         for (int j = 0; j < 12; j++) {
@@ -47,7 +46,7 @@ void printtable() {
         printf("\n");
     }
 }
-*/
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 int mapingchar(char c) {
