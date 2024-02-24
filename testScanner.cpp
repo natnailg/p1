@@ -10,45 +10,76 @@
 // we need a map function here that is going to read in the char, and it's going to be based on what that char is,
 // it's going map it to a number that I decide. > = 0
 
-//FSA Table have row and column ordering as specified in class
-int Table [12][12]= { //had to do 12 for the columns
-        {1,-1,3,5,10,-2,8,-3,6,-4,0,1001},
-        {-5,2,-5,-5,-5,-5,-5,-5,-5,-5,-5,5},
-        {1002,2,1002,1002,1002,1002,1002,1002,1002,1002,1002,1002},
-        {-5,4,-6,-6,-6,-6,-6,-6,-6,-6,-6,-6},
-        {1003,4,1003,1003,1003,1003,1003,1003,1003,1003,1003,1003},
-        {1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004},
-        {1004,1004,1004,1004,1004,1004,1004,1004,1004,7,1004,1004},
-        {1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004},
-        {1004,1004,1004,1004,1004,1004,1004,9,1004,1004,1004,1004},
-        {1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004},
-        {1004,1004,1004,1004,1004,11,1004,1004,1004,1004,1004,1004},
-        {1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004}
-
-};
-/*-1 => cant start with digit
- * -2 => semicolon error
- * -3 => can't have dollar sign start
- * -4 => can't start with quotation
- * -5 => must be digit
- * -6 => must be digit
- * t1_final = 1002
- * t2_final = 1003
- * t3_final = 1004
- * EOF_tk = 1001
- * */
-
-
-void printtable() {
-    for (int i = 0; i < 12; i++) {
-        for (int j = 0; j < 12; j++) {
-            printf("%d  ", Table[i][j]);
-        }
-        printf("\n");
+// Function to read from file and print strings
+void readFromFile(char* filename) {
+    FILE *file = fopen(filename, "r"); // Open the file in read mode
+    if (file == NULL) {
+        printf("Error opening file.\n");
+        return;
     }
+
+    char input_char;
+    struct Token token;
+    int lineCount = 1; // Initialize line count to 1
+    token.line_num =1;
+    int index = 0; // to keep track of the current position in tokeninstance
+
+    // Keep reading characters until EOF is encountered
+    while ((input_char = fgetc(file)) != EOF) {
+        if (input_char == '\n') {
+            token.tokeninstance[index] = '\0'; // Null-terminate the token
+            printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
+            printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
+
+            // Reset the token for the next line
+            index = 0; // Reset index
+            lineCount++; // Increment line count
+            token.line_num++;
+        } else {
+            // Add characters to the token instance array
+            token.tokeninstance[index++] = input_char;
+            // Check for tokeninstance overflow
+            if (index >= MAX_INSTANCE_TOKEN) {
+                printf("Error: Maximum token size exceeded.\n");
+                return;
+            }
+        }
+    }
+    fclose(file);
 }
 
+//let us get rid of all the comments in, they will start with # and end with one.
+void removcomments(char *inputfile, char *outputfile) {
 
+    FILE *input_file = fopen(inputfile, "r");
+    if (input_file == NULL) {printf("Error opening input file.\n"); return;}
+
+    FILE *output_file = fopen(outputfile, "w");
+    if (output_file == NULL) { printf("Error opening output file.\n");  return;}
+
+    int input_char;
+    bool comments = false;
+
+    while ((input_char = fgetc(input_file)) != EOF) {
+        if (!comments) {
+            if (input_char != '#') {
+                fputc(input_char, output_file); // Write character to output file if not in a comment
+            } else {
+                comments = true; // Start of comment
+            }
+        } else {
+            if (input_char == '\n') {
+                comments = false; // End of comment when encountering a newline
+            }
+        }
+    }
+
+    fclose(input_file);
+    fclose(output_file);
+
+    readFromFile(outputfile); //passing the char array not the file pointer
+
+}
 ////////////////////////////////////////////////////////////////////////////////////////////
 int mapingchar(char c) {
     switch ((int)c) {
@@ -127,75 +158,3 @@ void printCharacterType(char c, int result, int line) {
     }
 }
 
-
-
-// Function to read from file and print strings
-void readFromFile(char* filename) {
-    FILE *file = fopen(filename, "r"); // Open the file in read mode
-    if (file == NULL) {
-        printf("Error opening file.\n");
-        return;
-    }
-
-    char input_char;
-    struct Token token;
-    int lineCount = 1; // Initialize line count to 1
-    token.line_num =1;
-    int index = 0; // to keep track of the current position in tokeninstance
-
-    // Keep reading characters until EOF is encountered
-    while ((input_char = fgetc(file)) != EOF) {
-        if (input_char == '\n') {
-            token.tokeninstance[index] = '\0'; // Null-terminate the token
-            printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
-            printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
-
-            // Reset the token for the next line
-            index = 0; // Reset index
-            lineCount++; // Increment line count
-            token.line_num++;
-        } else {
-            // Add characters to the token instance array
-            token.tokeninstance[index++] = input_char;
-            // Check for tokeninstance overflow
-            if (index >= MAX_INSTANCE_TOKEN) {
-                printf("Error: Maximum token size exceeded.\n");
-                return;
-            }
-        }
-    }
-    fclose(file);
-}
-
-//let us get rid of all the comments in, they will start with # and end with one.
-void removcomments(char *inputfile, char *outputfile) {
-
-    FILE *input_file = fopen(inputfile, "r");
-    if (input_file == NULL) {printf("Error opening input file.\n"); return;}
-
-    FILE *output_file = fopen(outputfile, "w");
-    if (output_file == NULL) { printf("Error opening output file.\n");  return;}
-
-    int input_char;
-    bool comments = false;
-
-    while ((input_char = fgetc(input_file)) != EOF) {
-        if (!comments) {
-            if (input_char != '#' && !isspace(input_char) && input_char != '\n') {
-                fputc(input_char, output_file); // Write character to output file if not in a comment
-            } else {
-                comments = true; // Start of comment
-            }
-        } else {
-            if (input_char == '\n') {
-                comments = false; // End of comment when encountering a newline
-            }
-        }
-    }
-
-    fclose(input_file);
-    fclose(output_file);
-
-    readFromFile(outputfile); //passing the char array not the file pointer
-
-}

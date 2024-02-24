@@ -20,6 +20,8 @@ const int QUOTATION = 9;
 const int WHITESPACE = 10;
 const int END_OF_FILE = 11;
 
+
+
 void scanners();
 int mapingchar(char ); //mapping switch statement
 void readFromFile(char* file); // read from file and map
