@@ -63,7 +63,7 @@ int main(int argc, char* argv[]){
     tokens.tokenId = EOFtk;
     //call testScanner()
     token_description(tokens);
-    printtable();
+
 //    readFromFile(Readin); // working
 
     // call on the removecomments function and give it a newly created file
