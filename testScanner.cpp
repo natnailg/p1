@@ -3,6 +3,7 @@
 //
 
 #include <stdio.h>
+#include <ctype.h>
 #include "testScanner.h"
 #include "token.h"
 
@@ -180,7 +181,7 @@ void removcomments(char *inputfile, char *outputfile) {
 
     while ((input_char = fgetc(input_file)) != EOF) {
         if (!comments) {
-            if (input_char != '#') {
+            if (input_char != '#' && !isspace(input_char) && input_char != '\n') {
                 fputc(input_char, output_file); // Write character to output file if not in a comment
             } else {
                 comments = true; // Start of comment
