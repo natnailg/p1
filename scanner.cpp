@@ -89,6 +89,7 @@ tokenID token(int num, const char* fullString) {
 
 
 tokenID FADriver(char* tokeninstances) {
+    printf("%c", nextChar);
    printf("Received token string in FADriver: %s\n", tokeninstances);
 //    int state = 0;
 //    int nextState;
