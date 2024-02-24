@@ -3,7 +3,7 @@
 //
 
 #include <stdio.h>
-#include "testScanner.h"
+#include "scanner.h"
 #include "token.h"
 
 // we need a map function here that is going to read in the char, and it's going to be based on what that char is,
@@ -28,7 +28,7 @@ void readFromFile(char* filename) {
         if (input_char == '\n') {
             token.tokeninstance[index] = '\0'; // Null-terminate the token
 
-            tokenID token_id = FADriver(token); // Pass the token to FADriver
+            tokenID token_id = FADriver(); // Pass the token to FADriver
 
             printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
             printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
