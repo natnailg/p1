@@ -65,7 +65,7 @@ tokenID token(int num, const char* fullString) {
     printf("token function called\n");
     switch (num) {
         case 1001:
-            printf("is ever char coming here !!= %c", fullString)
+            printf("is ever char coming here !!= %c", fullString);
             printf("Token: %s - Full String: %s\n", tokenNames[1], fullString);
             return EOFtk;
         case 1002:
