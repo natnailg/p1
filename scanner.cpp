@@ -65,6 +65,7 @@ tokenID token(int num, const char* fullString) {
     printf("token function called\n");
     switch (num) {
         case 1001:
+            printf("is ever char coming here !!= %c", fullString)
             printf("Token: %s - Full String: %s\n", tokenNames[1], fullString);
             return EOFtk;
         case 1002:
@@ -94,7 +95,6 @@ tokenID FADriver(char ch) {
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0;
 //    char nextChar = getchar(); // Ensure nextChar is properly initialized
-    nextChar = ch;
     while (1) { // Check for end of input
         int column = mapingchar(nextChar); // Get column index using mappingchar function
         if (column == -1) {
