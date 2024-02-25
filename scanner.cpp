@@ -105,19 +105,19 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             S[S_index] = '\0'; // Null-terminate the string
             switch (nextState) {
                 case 1001:
-                    printf("End of the string!! %s \n\n", tokenNames[1]);
+                    printf("End of the string!! %s %s \n\n", tokenNames[1], tokenNames[token.tokenId]);
                     return EOFtk;
                 case 1002:
-                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[2], S, line_num);
+                    printf("Token: %s - Full String: %s  %d %s\n\n", tokenNames[2], S, line_num, tokenNames[token.tokenId]);
                     break;
                 case 1003:
-                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[3], S, line_num);
+                    printf("Token: %s - Full String: %s %d %s\n\n", tokenNames[3], S, line_num, tokenNames[token.tokenId]);
                     break;
                 case 1004:
-                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[4], S, line_num);
+                    printf("Token: %s - Full String: %s  %d %s\n\n", tokenNames[4], S, line_num, tokenNames[token.tokenId]);
                     break;
                 default:
-                    printf("end of file Token: %s - Full String: %s %d\n\n", tokenNames[0], S,line_num);
+                    printf("end of file Token: %s - Full String: %s %d %s\n\n", tokenNames[0], S,line_num, tokenNames[token.tokenId]);
                     return unknown;
             }
             state = 0; // Reset the state to zero
@@ -142,77 +142,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
         }
     }
-    printf("End of the string!! %s \n\n", tokenNames[1]);
+//        return   printf("End of the string!! %s \n\n", tokenNames[1]);
 }
 
 
-
-
-//
-//tokenID FADriver(char* tokeninstances) {
-//    printf("%c", nextChar);
-//   printf("Received token string in FADriver: %s\n", tokeninstances);
-//    int state = 0;
-//    int nextState;
-//    char S[256] = ""; // Assuming maximum token length of 255 characters
-//    int index = 0;
-//
-//    while (1) { // Check for end of input
-//        int column = mapingchar(nextChar); // Get column index using mappingchar function
-//        if (column == -1) {
-//            printf("Error: Unknown character.\n");
-//            return Error; // Return an error token
-//        }
-//
-//        nextState = Table[state][column];
-//        if (nextState < 0) {
-//            printf("Error: Negative number from table, something is invalid.\n");
-//            return Error; // Return an error token
-//        }
-//        if (nextState > 1000) {
-//            printf("large int found!!\n");
-//            // Final state reached, return the token
-//            S[index] = '\0'; // Null-terminate the string
-//
-//
-//            printf("before the nextstate: %d ---> %d ---char->%c ---> %s\n", state, column, nextChar, S);
-//            return token(nextState, S); // Return the token obtained from the token function along with the full string
-//
-//
-//        } else {
-//            // Not in final state yet
-//            state = nextState;
-//            S[index++] = nextChar; // Append the character to the string
-//            nextChar = getchar();
-//        }
-//    }
-//}
-//
-
-
-//tokenID token(int num, char* fullString) {
-//    printf("token function called --> %c\n", fullString);
-//    switch (num) {
-//        case 1001:
-//            printf("is ever char coming here !!= %c", fullString);
-//            printf("Token: %s - Full String: %s\n", tokenNames[1], fullString);
-//            break;
-//        case 1002:
-//            printf("Token: %s - Full String: %s\n", tokenNames[2], fullString);
-//            break;
-//        case 1003:
-//            printf("Token: %s - Full String: %s\n", tokenNames[3], fullString);
-//            break;
-//        case 1004:
-//            printf("i am in token 3\n");
-//            printf("Token: %s - Full String: %s\n", tokenNames[4], fullString);
-//            break;
-//        case -1:
-//            printf("Token: %s - Full String: %s\n", tokenNames[0], fullString);
-//            return Error;
-//        default:
-//            printf("Token: %s - Full String: %s\n", tokenNames[0], fullString);
-//            return unknown;
-//    }
-//    return unknown;
-//}
