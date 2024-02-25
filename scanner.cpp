@@ -5,7 +5,7 @@
 #include "scanner.h"
 char nextChar;
 
-char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
+const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
 //FSA Table have row and column ordering as specified in class
 int Table [12][12]= { //had to do 12 for the columns
