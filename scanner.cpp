@@ -61,8 +61,8 @@ int mapingchar(char c) {
     }
 }
 
-tokenID token(int num, const char* fullString) {
-    printf("token function called\n");
+tokenID token(int num, char* fullString) {
+    printf("token function called --> %c\n", fullString);
     switch (num) {
         case 1001:
             printf("is ever char coming here !!= %c", fullString);
@@ -77,7 +77,7 @@ tokenID token(int num, const char* fullString) {
         case 1004:
             printf("i am in token 3\n");
             printf("Token: %s - Full String: %s\n", tokenNames[4], fullString);
-            return T3_tk;
+            break;
         case -1:
             printf("Token: %s - Full String: %s\n", tokenNames[0], fullString);
             return Error;
@@ -130,7 +130,7 @@ tokenID token(int num, const char* fullString) {
 
 
 tokenID FADriver(char* tokeninstances) {
-    printf("Received token string in FADriver: %s\n", tokeninstances);
+//    printf("Received token string in FADriver: %s\n", tokeninstances);
     int state = 0;
     int nextState;
     char S[256] = ""; // Assuming maximum token length of 255 characters
@@ -150,11 +150,11 @@ tokenID FADriver(char* tokeninstances) {
             return Error; // Return an error token
         }
         if (nextState > 1000) {
-            printf("large int found!!\n");
+//            printf("large int found!!\n");
             // Final state reached, return the token
             S[index - 1] = '\0'; // Null-terminate the string
 
-            printf("before the nextstate: %d ---> %d ---char->%c ---> %s\n", state, column, nextChar, S);
+//            printf("before the nextstate: %d ---> %d ---char->%c ---> %s\n", state, column, nextChar, S);
             return token(nextState, S); // Return the token obtained from the token function along with the full string
         } else {
             // Not in final state yet
