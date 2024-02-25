@@ -102,7 +102,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 
         if (nextState > 1000) {
            //  Final state reached, return the token
-//            S[S_index] = '\0'; // Null-terminate the string
+            S[S_index] = '\0'; // Null-terminate the string
         switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
@@ -131,7 +131,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 
             //reset the array
             for (int i = 0; i < 256; i++) {
-                S[i] = '\0'; //***
+                S[i] = ' '; //***
             }
             S[0] = nextChar; // Append the character to the string
             column = mapingchar(nextChar); // Get column index using mappingchar function
