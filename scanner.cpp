@@ -108,16 +108,16 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("%s \n\n", tokenNames[1]);
                     return EOFtk;
                 case 1002:
-                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[2], S, token.line_num);
+                    printf("Token: %s - Full String: %s  %d->%d\n\n", tokenNames[2], S, token.line_num,line_num);
                     break;
                 case 1003:
-                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[3], S, token.line_num);
+                    printf("Token: %s - Full String: %s  %d->%d\n\n", tokenNames[3], S, token.line_num,line_num);
                     break;
                 case 1004:
-                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[4], S, token.line_num);
+                    printf("Token: %s - Full String: %s  %d->%d\n\n", tokenNames[4], S, token.line_num,line_num);
                     break;
                 default:
-                    printf("Token: %s - Full String: %s %d\n\n", tokenNames[0], S, token.line_num);
+                    printf("Token: %s - Full String: %s %d->%d\n\n", tokenNames[0], S, token.line_num,line_num);
                     return unknown;
             }
             state = 0; // Reset the state to zero
