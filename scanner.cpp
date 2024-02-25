@@ -67,7 +67,7 @@ tokenID token(int num, char* fullString) {
         case 1001:
             printf("is ever char coming here !!= %c", fullString);
             printf("Token: %s - Full String: %s\n", tokenNames[1], fullString);
-            return EOFtk;
+            break;
         case 1002:
             printf("Token: %s - Full String: %s\n", tokenNames[2], fullString);
             break;
