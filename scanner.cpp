@@ -3,7 +3,6 @@
 //
 #include <stdio.h>
 #include "scanner.h"
-#include "token.h"
 char nextChar;
 
 char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token",};
@@ -103,28 +102,50 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 
         if (nextState > 1000) {
             // Final state reached, return the token
-            S[S_index] = '\0'; // Null-terminate the string
-        switch (nextState) {
-                case 1001:
-                    token.tokenId = EOFtk;
-                    printf("%s \n\n", tokenNames[0]);
-                    return EOFtk;
+//            S[S_index] = '\0'; // Null-terminate the string
+//        switch (nextState) {
+//                case 1001:
+//                    token.tokenId = EOFtk;
+//                    printf("%s \n\n", tokenNames[0]);
+//                    return EOFtk;
+//                case 1002:
+//                    token.tokenId = T1_tk;
+//                    printf("%s - Full String: %s  %d\n\n",  tokenNames[1] ,S, line_num );
+//                    break;
+//                case 1003:
+//                    token.tokenId = T2_tk;
+//                    printf("%s - Full String: %s %d\n\n",tokenNames[2], S, line_num);
+//                    break;
+//                case 1004:
+//                    token.tokenId = T3_tk;
+//                    printf("%s - Full String: %s  %d\n\n",tokenNames[3], S, line_num);
+//                    break;
+//                default:
+//                    token.tokenId = unknown;
+//                    printf("%s - Full String: %s %d\n\n", tokenNames[4], S,line_num);
+//                    return unknown;
+//            }
+            switch (nextState) {
                 case 1002:
                     token.tokenId = T1_tk;
-                    printf("%s - Full String: %s  %d\n\n",  tokenNames[1] ,S, line_num );
+                    printf("Token ID: %d\n", token.tokenId); // Debugging print
+                    printf("%s - Full String: %s  %d\n\n", tokenNames[token.tokenId], S, line_num);
                     break;
                 case 1003:
                     token.tokenId = T2_tk;
-                    printf("%s - Full String: %s %d\n\n",tokenNames[2], S, line_num);
+                    printf("Token ID: %d\n", token.tokenId); // Debugging print
+                    printf("%s - Full String: %s %d\n\n", tokenNames[token.tokenId], S, line_num);
                     break;
                 case 1004:
                     token.tokenId = T3_tk;
-                    printf("%s - Full String: %s  %d\n\n",tokenNames[3], S, line_num);
+                    printf("Token ID: %d\n", token.tokenId); // Debugging print
+                    printf("%s - Full String: %s  %d\n\n", tokenNames[token.tokenId], S, line_num);
                     break;
                 default:
                     token.tokenId = unknown;
-                    printf("%s - Full String: %s %d\n\n", tokenNames[4], S,line_num);
-                    return unknown;
+                    printf("Token ID: %d\n", token.tokenId); // Debugging print
+                    printf("%s - Full String: %s %d\n\n", tokenNames[token.tokenId], S, line_num);
+                    break;
             }
 
             state = 0; // Reset the state to zero
