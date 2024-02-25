@@ -52,8 +52,8 @@ int mapingchar(char c) {
         case ' ': // White space (space)
         case '\n': // Newline character
             return WHITESPACE; // WHITESPACE
-        case '\0': // EOF encountered
-            return END_OF_FILE; // END_OF_FILE
+//        case '\0': // EOF encountered
+//            return END_OF_FILE; // END_OF_FILE
         default:
             return -1; // Unknown character
     }
@@ -117,7 +117,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("Token: %s - Full String: %s  %d\n\n", tokenNames[4], S, line_num);
                     break;
                 default:
-                    printf("Token: %s - Full String: %s %d\n\n", tokenNames[0], S,line_num);
+                    printf("end of file Token: %s - Full String: %s %d\n\n", tokenNames[0], S,line_num);
                     return unknown;
             }
             state = 0; // Reset the state to zero
