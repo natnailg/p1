@@ -104,10 +104,10 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             // Final state reached, return the token
             S[S_index] = '\0'; // Null-terminate the string
         switch (nextState) {
-//                case 1001:
-//                    token.tokenId = EOFtk;
-//                    printf("%s \n\n", token);
-//                    return EOFtk;
+                case 1001:
+                    token.tokenId = EOFtk;
+                    printf("%s \n\n", tokenNames[token.tokenId]);
+                    return EOFtk;
 //                case 1002:
 //                    token.tokenId = T1_tk;
 //                    printf("%s - Full String: %s  %d\n\n",  tokenNames[1] ,S, line_num );
