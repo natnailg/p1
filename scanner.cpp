@@ -3,7 +3,7 @@
 //
 #include <stdio.h>
 #include "scanner.h"
-
+char nextChar;
 
 const char* tokenNames[] = {"Unknown token", "EOF token", "T1 token", "T2 token", "T3 token"};
 
@@ -68,7 +68,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
 
-    char nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
+    nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
     while (1) { // Loop until the end of the string ('\0') is reached
         int column = mapingchar(nextChar); // Get column index using mappingchar function
@@ -105,7 +105,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             S[S_index] = '\0'; // Null-terminate the string
             switch (nextState) {
                 case 1001:
-                    printf("%s \n\n", tokenNames[1]);
+                    printf("End of the string!! %s \n\n", tokenNames[1]);
                     return EOFtk;
                 case 1002:
                     printf("Token: %s - Full String: %s  %d\n\n", tokenNames[2], S, line_num);
@@ -142,6 +142,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
         }
     }
+    printf("End of the string!! %s \n\n", tokenNames[1]);
 }
 
 

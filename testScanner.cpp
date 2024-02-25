@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include "scanner.h"
 #include "token.h"
-char nextChar;
+
 
 // we need a map function here that is going to read in the char, and it's going to be based on what that char is,
 // it's going map it to a number that I decide. > = 0
@@ -31,9 +31,6 @@ void readFromFile(char* filename) {
             token.tokeninstance[index] = '\0'; // Null-terminate the token
             nextChar = token.tokeninstance[0];
             FADriver(token.tokeninstance, token.line_num);
-
-//            printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
-            printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
 
             // Reset the token for the next line
             index = 0; // Reset index
