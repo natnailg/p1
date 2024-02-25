@@ -21,7 +21,7 @@ void readFromFile(char* filename) {
     char input_char;
     struct Token token;
     int lineCount = 1; // Initialize line count to 1
-    token.line_num =1;
+    token.line_num = 1;
     int index = 0; // to keep track of the current position in tokeninstance
 
     // Keep reading characters until EOF is encountered

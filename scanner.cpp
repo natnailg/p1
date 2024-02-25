@@ -62,6 +62,7 @@ int mapingchar(char c) {
 
 tokenID FADriver(char* tokeninstances) {
     int state = 0;
+    struct Token token;
     int nextState;
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
@@ -76,7 +77,7 @@ tokenID FADriver(char* tokeninstances) {
         if (nextState < 0) {
             switch (nextState) {
                 case -1:
-                    printf("can't start with a digit! %s\n", S);
+                    printf("can't start with a digit! %s %d\n", S, token.line_num);
                     return Error ;
                 case -2:
                     printf("semicolone Error!!\n %s", S);
@@ -107,16 +108,16 @@ tokenID FADriver(char* tokeninstances) {
                     printf("%s \n\n", tokenNames[1]);
                     return EOFtk;
                 case 1002:
-                    printf("Token: %s - Full String: %s\n\n", tokenNames[2], S);
+                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[2], S, token.line_num);
                     break;
                 case 1003:
-                    printf("Token: %s - Full String: %s\n\n", tokenNames[3], S);
+                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[3], S, token.line_num);
                     break;
                 case 1004:
-                    printf("Token: %s - Full String: %s\n\n", tokenNames[4], S);
+                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[4], S, token.line_num);
                     break;
                 default:
-                    printf("Token: %s - Full String: %s\n\n", tokenNames[0], S);
+                    printf("Token: %s - Full String: %s %d\n\n", tokenNames[0], S, token.line_num);
                     return unknown;
             }
             state = 0; // Reset the state to zero
