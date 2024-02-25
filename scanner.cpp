@@ -62,7 +62,7 @@ int mapingchar(char c) {
 
 tokenID FADriver(char* tokeninstances, int line_num) {
     int state = 0;
-    struct Token token;
+     Token token;
     int nextState;
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
