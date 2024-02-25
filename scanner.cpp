@@ -3,9 +3,10 @@
 //
 #include <stdio.h>
 #include "scanner.h"
+#include "token.h"
 char nextChar;
 
-const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token",};
+char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token",};
 
 //FSA Table have row and column ordering as specified in class
 int Table [12][12]= { //had to do 12 for the columns
@@ -103,54 +104,51 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         if (nextState > 1000) {
             // Final state reached, return the token
 //            S[S_index] = '\0'; // Null-terminate the string
-        switch (nextState) {
-                case 1001:
-                    token.tokenId = EOFtk;
-                    printf("%s \n\n", tokenNames[token.tokenId]);
-                    return EOFtk;
+//        switch (nextState) {
+//                case 1001:
+//                    token.tokenId = EOFtk;
+//                    printf("%s \n\n", tokenNames[0]);
+//                    return EOFtk;
 //                case 1002:
 //                    token.tokenId = T1_tk;
 //                    printf("%s - Full String: %s  %d\n\n",  tokenNames[1] ,S, line_num );
 //                    break;
 //                case 1003:
 //                    token.tokenId = T2_tk;
-//                    printf("%s - Full String: %s %d\n\n",token, S, line_num);
+//                    printf("%s - Full String: %s %d\n\n",tokenNames[2], S, line_num);
 //                    break;
 //                case 1004:
 //                    token.tokenId = T3_tk;
-//                    printf("%s - Full String: %s  %d\n\n",token, S, line_num);
+//                    printf("%s - Full String: %s  %d\n\n",tokenNames[3], S, line_num);
 //                    break;
 //                default:
 //                    token.tokenId = unknown;
-//                    printf("%s - Full String: %s %d\n\n", token, S,line_num);
+//                    printf("%s - Full String: %s %d\n\n", tokenNames[4], S,line_num);
 //                    return unknown;
 //            }
-            case 1002:
-                token.tokenId = T1_tk;
-                printf("Token ID: %d -> %s --->\n", token.tokenId, token); // Debugging print
-                printf("%s - Full String: %s    %d\n\n", tokenNames[token.tokenId], S, line_num);
-                printf("%s %s %s- Full String: %s    %d\n\n", tokenNames[token.tokenId],token, token.tokenId,S, line_num);
+            switch (nextState) {
+                case 1002:
+                    token.tokenId = T1_tk;
+                    printf("Token ID: %d\n", token.tokenId); // Debugging print
+                    printf("%s - Full String: %s  %d\n\n", tokenNames[token.tokenId], S, line_num);
+                    break;
+                case 1003:
+                    token.tokenId = T2_tk;
+                    printf("Token ID: %d\n", token.tokenId); // Debugging print
+                    printf("%s - Full String: %s %d\n\n", tokenNames[token.tokenId], S, line_num);
+                    break;
+                case 1004:
+                    token.tokenId = T3_tk;
+                    printf("Token ID: %d\n", token.tokenId); // Debugging print
+                    printf("%s - Full String: %s  %d\n\n", tokenNames[token.tokenId], S, line_num);
+                    break;
+                default:
+                    token.tokenId = unknown;
+                    printf("Token ID: %d\n", token.tokenId); // Debugging print
+                    printf("%s - Full String: %s %d\n\n", tokenNames[token.tokenId], S, line_num);
+                    break;
+            }
 
-                break;
-            case 1003:
-                token.tokenId = T2_tk;
-                printf("Token ID: %d\n", token.tokenId); // Debugging print
-                printf("%s - Full String: %s    %d\n\n", tokenNames[token.tokenId], S, line_num);
-                printf("%s %s %s- Full String: %s    %d\n\n", tokenNames[token.tokenId],token, token.tokenId,S, line_num);
-
-                break;
-            case 1004:
-                printf("Token ID: %d\n", token.tokenId); // Debugging print
-                token.tokenId = T3_tk;
-                printf("%s - Full String: %s    %d\n\n", tokenNames[token.tokenId], S, line_num);
-                printf("%s %s %s- Full String: %s    %d\n\n", tokenNames[token.tokenId],token, token.tokenId,S, line_num);
-
-                break;
-            default:
-                token.tokenId = unknown;
-                printf("%s %s %s- Full String: %s    %d\n\n", tokenNames[token.tokenId],token, token.tokenId,S, line_num);
-                return unknown;
-        }
             state = 0; // Reset the state to zero
             S_index = 0; // Reset the index for S array
 
@@ -159,11 +157,8 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                 S[i] = '\0';
             }
             S[0] = nextChar; // Append the character to the string
-            // nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
-
             column = mapingchar(nextChar); // Get column index using mappingchar function
             nextState = Table[state][column];
-            // printf("%sinside the switch------------------next state %d----------------%c, column %d\n", S, nextState, nextChar, column);
 
 
         } else {

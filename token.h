@@ -18,7 +18,7 @@ typedef enum{
     Error = -1, // for any state that is less than 0
     unknown = 0
 }tokenID;
-extern const char* tokenNames[];
+extern char* tokenNames[];
 //const char* tokenNames[] = {"EOF token","T1 token","T2 token", "T2 token"};
 
 // for each token we are going to need the TokenID, TokenInstance, line#
