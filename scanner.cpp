@@ -77,25 +77,25 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         if (nextState < 0) {
             switch (nextState) {
                 case -1:
-                    printf("can't start with a digit! %s %d\n", S, token.line_num);
+                    printf("can't start with a digit! %s %d\n", S, line_num);
                     return Error ;
                 case -2:
-                    printf("semicolone Error!!\n %s", S);
+                    printf("semicolone Error!!\n %s %d",  S, line_num);
                     return Error;
                 case -3:
-                    printf("can't have dollar sign start %s \n", S);
+                    printf("can't have dollar sign start %s %d\n",  S, line_num);
                     return Error;
                 case -4 :
-                    printf("CAN'T START WITH STAR!! %s\n", S);
+                    printf("CAN'T START WITH STAR!! %s %d\n",  S, line_num);
                     return Error;
                 case -5 :
-                    printf("must be followed by a digit %s\n", S);
+                    printf("must be followed by a digit %s %d\n",  S, line_num);
                     return Error;
                 case -6 :
-                    printf("must be followed by a digit %s\n", S);
+                    printf("must be followed by a digit %s %d\n",  S, line_num);
                     return Error;
                 default:
-                    printf("unknown Error %s\n",S);
+                    printf("unknown Error %s %d\n", S, line_num);
                     return unknown;
             }
         }
@@ -108,16 +108,16 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("%s \n\n", tokenNames[1]);
                     return EOFtk;
                 case 1002:
-                    printf("Token: %s - Full String: %s  %d->%d\n\n", tokenNames[2], S, token.line_num,line_num);
+                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[2], S, line_num);
                     break;
                 case 1003:
-                    printf("Token: %s - Full String: %s  %d->%d\n\n", tokenNames[3], S, token.line_num,line_num);
+                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[3], S, line_num);
                     break;
                 case 1004:
-                    printf("Token: %s - Full String: %s  %d->%d\n\n", tokenNames[4], S, token.line_num,line_num);
+                    printf("Token: %s - Full String: %s  %d\n\n", tokenNames[4], S, line_num);
                     break;
                 default:
-                    printf("Token: %s - Full String: %s %d->%d\n\n", tokenNames[0], S, token.line_num,line_num);
+                    printf("Token: %s - Full String: %s %d\n\n", tokenNames[0], S,line_num);
                     return unknown;
             }
             state = 0; // Reset the state to zero
