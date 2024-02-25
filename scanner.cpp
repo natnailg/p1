@@ -60,7 +60,7 @@ int mapingchar(char c) {
 }
 
 
-tokenID FADriver(char* tokeninstances) {
+tokenID FADriver(char* tokeninstances, int line_num) {
     int state = 0;
     struct Token token;
     int nextState;

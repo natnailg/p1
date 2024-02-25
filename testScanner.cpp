@@ -31,7 +31,7 @@ void readFromFile(char* filename) {
             token.tokeninstance[index] = '\0'; // Null-terminate the token
 
             nextChar = token.tokeninstance[0];
-            FADriver(token.tokeninstance);
+            FADriver(token.tokeninstance, token.line_num);
 
 //            printf("Line %d: %s\n", lineCount, token.tokeninstance); // Print the string
 //            printf("Line %d: %s\n", token.line_num, token.tokeninstance); // Print the string
