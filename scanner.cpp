@@ -105,17 +105,19 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             S[S_index] = '\0'; // Null-terminate the string
             switch (nextState) {
                 case 1001:
+                    token.tokenId = EOFtk;
                     printf("End of the string!! %s %s \n\n", tokenNames[1], tokenNames[token.tokenId]);
                     return EOFtk;
                 case 1002:
-                    printf("Token: %s - Full String: %s  %d %s\n\n", tokenNames[2], S, line_num, tokenNames[token.tokenId]);
-                    break;
+
+                    printf("Token: %s - Full String: %s  %d %s\n\n", tokenNames[2], S, line_num,tokenNames[token.tokenId]);
+                    return T1_tk;
                 case 1003:
                     printf("Token: %s - Full String: %s %d %s\n\n", tokenNames[3], S, line_num, tokenNames[token.tokenId]);
-                    break;
+                    return T2_tk;
                 case 1004:
                     printf("Token: %s - Full String: %s  %d %s\n\n", tokenNames[4], S, line_num, tokenNames[token.tokenId]);
-                    break;
+                    return T3_tk;
                 default:
                     printf("end of file Token: %s - Full String: %s %d %s\n\n", tokenNames[0], S,line_num, tokenNames[token.tokenId]);
                     return unknown;
