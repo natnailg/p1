@@ -102,7 +102,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 
         if (nextState > 1000) {
             // Final state reached, return the token
-            S[S_index] = '\0'; // Null-terminate the string
+//            S[S_index] = '\0'; // Null-terminate the string
         switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
