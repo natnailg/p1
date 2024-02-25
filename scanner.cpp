@@ -106,19 +106,19 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
-                    printf("%s \n\n", token);
+                    printf("%s \n\n", token.tokenId);
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
-                    printf("%s - Full String: %s  %d\n\n", tokenNames[token.tokenId], S, line_num );
+                    printf("%s - Full String: %s  %d\n\n",token.tokenId, S, line_num );
                     break;
                 case 1003:
                     token.tokenId = T2_tk;
-                    printf("%s - Full String: %s %d\n\n", tokenNames[token.tokenId], S, line_num);
+                    printf("%s - Full String: %s %d\n\n",token.tokenId, S, line_num);
                     break;
                 case 1004:
                     token.tokenId = T3_tk;
-                    printf("%s - Full String: %s  %d\n\n",tokenNames[token.tokenId], S, line_num);
+                    printf("%s - Full String: %s  %d\n\n",token.tokenId, S, line_num);
                     break;
                 default:
                     token.tokenId = unknown;
