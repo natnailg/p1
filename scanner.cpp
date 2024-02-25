@@ -128,22 +128,28 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             case 1002:
                 token.tokenId = T1_tk;
                 printf("Token ID: %d -> %s --->\n", token.tokenId, token); // Debugging print
-                printf("%s - Full String: %s  %d\n\n", tokenNames[token.tokenId], S, line_num);
+                printf("%s - Full String: %s    %d\n\n", tokenNames[token.tokenId], S, line_num);
+                printf("%s %s %s- Full String: %s    %d\n\n", tokenNames[token.tokenId],token, token.tokenId,S, line_num);
+
                 break;
             case 1003:
                 token.tokenId = T2_tk;
                 printf("Token ID: %d\n", token.tokenId); // Debugging print
-                printf("%s - Full String: %s %d\n\n", tokenNames[token.tokenId], S, line_num);
+                printf("%s - Full String: %s    %d\n\n", tokenNames[token.tokenId], S, line_num);
+                printf("%s %s %s- Full String: %s    %d\n\n", tokenNames[token.tokenId],token, token.tokenId,S, line_num);
+
                 break;
             case 1004:
                 printf("Token ID: %d\n", token.tokenId); // Debugging print
                 token.tokenId = T3_tk;
-                printf("%s - Full String: %s  %d\n\n", tokenNames[token.tokenId], S, line_num);
+                printf("%s - Full String: %s    %d\n\n", tokenNames[token.tokenId], S, line_num);
+                printf("%s %s %s- Full String: %s    %d\n\n", tokenNames[token.tokenId],token, token.tokenId,S, line_num);
+
                 break;
             default:
                 token.tokenId = unknown;
-                printf("%s - Full String: %s %d\n\n", tokenNames[token.tokenId], S, line_num);
-                break;
+                printf("%s %s %s- Full String: %s    %d\n\n", tokenNames[token.tokenId],token, token.tokenId,S, line_num);
+                return unknown;
         }
             state = 0; // Reset the state to zero
             S_index = 0; // Reset the index for S array
