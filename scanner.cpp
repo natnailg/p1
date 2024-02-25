@@ -52,8 +52,8 @@ int mapingchar(char c) {
         case ' ': // White space (space)
         case '\n': // Newline character
             return WHITESPACE; // WHITESPACE
-//        case '\0': // EOF encountered
-//            return END_OF_FILE; // END_OF_FILE
+        case '\0': // EOF encountered
+            return END_OF_FILE; // END_OF_FILE
         default:
             return -1; // Unknown character
     }
