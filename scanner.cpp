@@ -69,7 +69,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     int S_index = 0; // Index for S array
 
     char nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
-
+//
     while (1) { // Loop until the end of the string ('\0') is reached
         int column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
