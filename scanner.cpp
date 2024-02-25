@@ -106,23 +106,23 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
-                    printf("End of the string!! %s %s \n\n", tokenNames[1], token);
+                    printf("%s \n\n", token);
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
-                    printf("Token: %s - Full String: %s  %d %s\n\n", tokenNames[2], S, line_num,token);
+                    printf("%s - Full String: %s  %d\n\n", tokenNames[token.tokenId], S, line_num );
                     break;
                 case 1003:
                     token.tokenId = T2_tk;
-                    printf("Token: %s - Full String: %s %d %s\n\n", tokenNames[3], S, line_num, token);
+                    printf("%s - Full String: %s %d\n\n", tokenNames[token.tokenId], S, line_num);
                     break;
                 case 1004:
                     token.tokenId = T3_tk;
-                    printf("Token: %s - Full String: %s  %d %s\n\n", tokenNames[4], S, line_num, token);
+                    printf("%s - Full String: %s  %d\n\n",tokenNames[token.tokenId], S, line_num);
                     break;
                 default:
                     token.tokenId = unknown;
-                    printf("end of file Token: %s - Full String: %s %d %s\n\n", tokenNames[0], S,line_num, token);
+                    printf("%s - Full String: %s %d\n\n", tokenNames[token.tokenId], S,line_num);
                     return unknown;
             }
             state = 0; // Reset the state to zero
