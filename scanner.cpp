@@ -127,7 +127,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 //            }
             case 1002:
                 token.tokenId = T1_tk;
-                printf("Token ID: %d\n", token.tokenId); // Debugging print
+                printf("Token ID: %d -> %s --->\n", token.tokenId, token); // Debugging print
                 printf("%s - Full String: %s  %d\n\n", tokenNames[token.tokenId], S, line_num);
                 break;
             case 1003:
