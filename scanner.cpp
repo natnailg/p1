@@ -46,10 +46,8 @@ int mapingchar(char c) {
             return LETTER;
         case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
-            printf("digit ->> %c \n", c);
             return DIGIT;
         case '%': // Percent sign '%'
-            printf("mapping %c --> \n",c );
             return PERCENTAGE; // PERCENTAGE
         case '.': // Period '.'
         case '!': // Exclamation mark '!'
@@ -72,10 +70,8 @@ int mapingchar(char c) {
             return WHITESPACE;
         case EOF: // EOF encountered
             return END_OF_FILE; // END_OF_FILE
-//        case 'EOF':
-//            return END_OF_FILE;
         default:
-            printf("mapping %c --> \n",c );
+//            printf("mapping %c --> \n",c );
             return 0;// Unknown character
     }
 }
@@ -88,11 +84,12 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
-//    memset( token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
+    bool end = true;
+    //    memset( token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
 
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
-    while (nextChar != EOF) { // Loop until the end of the string ('\0') is reached
+    while (end == true) { // Loop until the end of the string ('\0') is reached
         int column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
 //        printf(" ONE TOP swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
@@ -126,7 +123,6 @@ tokenID FADriver(char* tokeninstances, int line_num) {
            //  Final state reached, return the token
             S[S_index] = '\0'; // Null-terminate the string
 //            printf(" before the swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
-
             switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
