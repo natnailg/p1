@@ -70,7 +70,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
-    memset( token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
+//    memset( token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
 
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
@@ -132,6 +132,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("%s - Full String: %s    %d\n\n", tokenNames[4], S,line_num);
                     return unknown;
             }
+            column = 0;
 //
 //            state = 0; // Reset the state to zero
 //            S_index = 0; // Reset the index for S array
