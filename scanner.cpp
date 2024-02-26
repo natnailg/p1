@@ -54,6 +54,8 @@ int mapingchar(char c) {
             return WHITESPACE; // WHITESPACE
         case '\0': // EOF encountered
             return END_OF_FILE; // END_OF_FILE
+//        case 'EOF':
+//            return printf()
         default:
             return -1; // Unknown character
     }
@@ -143,6 +145,9 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             state = nextState;
             S[S_index++] = nextChar; // Append the character to the string
             nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
+        }
+        if (nextChar == EOF){
+            printf("endo of file encountered!!!\n");
         }
     }
 }
