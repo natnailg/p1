@@ -71,7 +71,7 @@ int mapingchar(char c) {
             return END_OF_FILE; // END_OF_FILE
         default:
 //            printf("mapping %c --> \n",c );
-            return -1;// Unknown character
+            return 0;// Unknown character
     }
 }
 
