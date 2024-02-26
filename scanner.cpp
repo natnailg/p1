@@ -104,7 +104,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 
         if (nextState > 1000) {
            //  Final state reached, return the token
-            S[S_index] = '\0'; // Null-terminate the string
+//            S[S_index] = '\0'; // Null-terminate the string
         switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
@@ -146,9 +146,9 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             S[S_index++] = nextChar; // Append the character to the string
             nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
         }
-        if (nextChar == EOF){
-            printf("endo of file encountered!!!\n");
-        }
+//        if (nextChar == EOF){
+//            printf("endo of file encountered!!!\n");
+//        }
     }
     return EOFtk;
 }
