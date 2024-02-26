@@ -11,7 +11,7 @@ const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "E
 int Table [12][12]= { //had to do 12 for the columns
         {1,-1,3,5,10,-2,8,-3,6,-4,0,1001},
         {-5,2,-5,-5,-5,-5,-5,-5,-5,-5,-5,-5},
-        {1002,2,1002,1002,1002,1002,1002,1002,1002,1002,1002,1002},
+        {1002,1002,1002,1002,1002,1002,1002,1002,1002,1002,1002,1002},
         {-5,4,-6,-6,-6,-6,-6,-6,-6,-6,-6,-6},
         {1003,4,1003,1003,1003,1003,1003,1003,1003,1003,1003,1003},
         {1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004},
@@ -73,6 +73,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
     while (1) { // Loop until the end of the string ('\0') is reached
+        printf(" ONE TOP swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
         int column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
 
@@ -104,7 +105,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 
         if (nextState > 1000) {
            //  Final state reached, return the token
-//            S[S_index] = ' '; // Null-terminate the string
+            S[S_index] = '\0'; // Null-terminate the string
             printf(" before the swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
 
             switch (nextState) {
