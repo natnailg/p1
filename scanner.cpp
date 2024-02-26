@@ -89,10 +89,10 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("CAN'T START WITH STAR!! %s %d\n",  S, line_num);
                     return Error;
                 case -5 :
-                    printf("must be followed by a digit %s %d\n",  S, line_num);
+                    printf("!!must be followed by a digit %s %d\n",  S, line_num);
                     return Error;
                 case -6 :
-                    printf("must be followed by a digit %s %d\n",  S, line_num);
+                    printf("!!!must be followed by a digit %s %d\n",  S, line_num);
                     return Error;
                 default:
                     printf("unknown Error %s %d\n", S, line_num);
@@ -110,19 +110,19 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
-                    printf("%s - Full String: %s  %d\n\n",  tokenNames[1] ,S, line_num );
+                    printf("%s - Full String: %s    %d\n\n",  tokenNames[1] ,S, line_num );
                     break;
                 case 1003:
                     token.tokenId = T2_tk;
-                    printf("%s - Full String: %s %d\n\n",tokenNames[2], S, line_num);
+                    printf("%s - Full String: %s    %d\n\n",tokenNames[2], S, line_num);
                     break;
                 case 1004:
                     token.tokenId = T3_tk;
-                    printf("%s - Full String: %s  %d\n\n",tokenNames[3], S, line_num);
+                    printf("%s - Full String: %s    %d\n\n",tokenNames[3], S, line_num);
                     break;
                 default:
                     token.tokenId = unknown;
-                    printf("%s - Full String: %s %d\n\n", tokenNames[4], S,line_num);
+                    printf("%s - Full String: %s    %d\n\n", tokenNames[4], S,line_num);
                     return unknown;
             }
 
