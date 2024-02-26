@@ -140,7 +140,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             S[0] = nextChar; // Append the character to the string
             column = mapingchar(nextChar); // Get column index using mappingchar function
             nextState = Table[state][column];
-            nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
+//            nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
 
             printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c array -> %s\n\n", tokenNames[0], nextState,state,column,nextChar,S);
 
