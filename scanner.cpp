@@ -71,7 +71,7 @@ int mapingchar(char c) {
             return END_OF_FILE; // END_OF_FILE
         default:
 //            printf("mapping %c --> \n",c );
-            return 0;// Unknown character
+            return -1;// Unknown character
     }
 }
 
@@ -163,7 +163,8 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 // Reset state and S for the next token
             state = 0;
             S_index = 0;
-            memset(S, '\0', sizeof(S)); // Reset the array to null characters
+            memset(S, '\0', strlen(S)); // Reset the array to null characters
+
             //nextChar = tokeninstances[index++]; // Move to the next character
 
 //            printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c array -> %s\n\n", tokenNames[0], nextState,state,column,nextChar,S);
