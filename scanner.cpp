@@ -133,7 +133,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 
             //reset the array
             for (int i = 0; i < 256; i++) {
-                S[i] = '\0'; //***
+                S[i] = ' '; //***
             }
             S[0] = nextChar; // Append the character to the string
             column = mapingchar(nextChar); // Get column index using mappingchar function
