@@ -142,7 +142,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             nextState = Table[state][column];
 
             printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
-
+            continue;
         } else {
             // Not in final state yet
             state = nextState;
