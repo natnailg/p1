@@ -28,12 +28,26 @@ int Table [12][12]= { //had to do 12 for the columns
 
 int mapingchar(char c) {
     switch ((int)c) {
-        case 'a' ... 'z': // lowercase letters 'a-z'
-        case 'A' ... 'Z': // uppercase letters 'A-Z'
-            return LETTER; // LETTER
-        case '0' ... '9': // digits '0' to '9'
+//        case 'a' ... 'z': // lowercase letters 'a-z'
+//        case 'A' ... 'Z': // uppercase letters 'A-Z'
+//            return LETTER; // LETTER
+//        case '0' ... '9': // digits '0' to '9'
+//            printf("digit ->> %c ", c);
+//            return DIGIT; // DIGIT
+        case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g':
+        case 'h': case 'i': case 'j': case 'k': case 'l': case 'm': case 'n':
+        case 'o': case 'p': case 'q': case 'r': case 's': case 't': case 'u':
+        case 'v': case 'w': case 'x': case 'y': case 'z':
+        case 'A': case 'B': case 'C': case 'D': case 'E': case 'F': case 'G':
+        case 'H': case 'I': case 'J': case 'K': case 'L': case 'M': case 'N':
+        case 'O': case 'P': case 'Q': case 'R': case 'S': case 'T': case 'U':
+        case 'V': case 'W': case 'X': case 'Y': case 'Z':
             printf("digit ->> %c ", c);
-            return DIGIT; // DIGIT
+            return LETTER;
+        case '0': case '1': case '2': case '3': case '4':
+        case '5': case '6': case '7': case '8': case '9':
+            printf("digit ->> %c ", c);
+            return DIGIT;
         case '%': // Percent sign '%'
             printf("mapping %c --> \n",c );
             return PERCENTAGE; // PERCENTAGE
