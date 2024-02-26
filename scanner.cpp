@@ -105,7 +105,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         if (nextState > 1000) {
            //  Final state reached, return the token
 //            S[S_index] = ' '; // Null-terminate the string
-            printf(" before the swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
+//            printf(" before the swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
 
             switch (nextState) {
                 case 1001:
@@ -142,7 +142,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             nextState = Table[state][column];
 //            nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
 
-            printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c array -> %s\n\n", tokenNames[0], nextState,state,column,nextChar,S);
+//            printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c array -> %s\n\n", tokenNames[0], nextState,state,column,nextChar,S);
 
         } else {
             // Not in final state yet
