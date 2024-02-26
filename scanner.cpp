@@ -65,11 +65,12 @@ int mapingchar(char c) {
 
 tokenID FADriver(char* tokeninstances, int line_num) {
     int state = 0;
-     Token token;
+    struct Token token;
     int nextState;
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
+    memset( token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
 
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
@@ -131,21 +132,26 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("%s - Full String: %s    %d\n\n", tokenNames[4], S,line_num);
                     return unknown;
             }
-
-            state = 0; // Reset the state to zero
-            S_index = 0; // Reset the index for S array
+//
+//            state = 0; // Reset the state to zero
+//            S_index = 0; // Reset the index for S array
 
             //reset the array
 //            for (int i = 0; i < 256; i++) {
 //                S[i] = '\0'; //***
 //            }
-            //memset(S, '\0', strlen(S));
-
-            S[0] = nextChar; // Append the character to the string
-            column = 0;
-           // column = mapingchar(nextChar); // Get column index using mappingchar function
-            nextState = Table[state][column];
-            nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
+//            memset(S, '\0', strlen(S));
+//
+//            S[0] = nextChar; // Append the character to the string
+//            column = 0;
+//            column = mapingchar(nextChar); // Get column index using mappingchar function
+//            nextState = Table[state][column];
+//            nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
+// Reset state and S for the next token
+            state = 0;
+            S_index = 0;
+            memset(S, '\0', sizeof(S)); // Reset the array to null characters
+            nextChar = tokeninstances[index++]; // Move to the next character
 
             printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c array -> %s\n\n", tokenNames[0], nextState,state,column,nextChar,S);
 
