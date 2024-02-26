@@ -93,7 +93,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         nextState = Table[state][column];
 //        printf(" ONE TOP swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
 
-        if (nextState <= -1) {
+        if (nextState < 0) {
             switch (nextState) {
                 case -1:
                     printf("can't start with a digit! %s %d\n", S, line_num);
@@ -164,7 +164,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             state = 0;
             S_index = 0;
             memset(S, '\0', sizeof(S)); // Reset the array to null characters
-            nextChar = tokeninstances[index++]; // Move to the next character
+            //nextChar = tokeninstances[index++]; // Move to the next character
 
 //            printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c array -> %s\n\n", tokenNames[0], nextState,state,column,nextChar,S);
 
