@@ -139,10 +139,11 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 //            for (int i = 0; i < 256; i++) {
 //                S[i] = '\0'; //***
 //            }
-            memset(S, '\0', sizeof(S));
+            //memset(S, '\0', strlen(S));
 
             S[0] = nextChar; // Append the character to the string
-            column = mapingchar(nextChar); // Get column index using mappingchar function
+            column = 0;
+           // column = mapingchar(nextChar); // Get column index using mappingchar function
             nextState = Table[state][column];
             nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
 
