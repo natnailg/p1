@@ -58,7 +58,8 @@ int mapingchar(char c) {
 //        case 'EOF':
 //            return END_OF_FILE;
         default:
-            return -1; // Unknown character
+            printf("mapping %c --> \n",c );
+            return -1;// Unknown character
     }
 }
 
