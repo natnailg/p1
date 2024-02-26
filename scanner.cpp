@@ -64,7 +64,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     int state = 0;
      Token token;
     int nextState;
-    char S[2560] = ""; // Assuming maximum token length of 255 characters
+    char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
 
@@ -130,7 +130,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             S_index = 0; // Reset the index for S array
 
             //reset the array
-            for (int i = 0; i < 2560; i++) {
+            for (int i = 0; i < 256; i++) {
                 S[i] = '\0'; //***
             }
             S[0] = nextChar; // Append the character to the string

@@ -25,29 +25,29 @@ void readFromFile(char* filename) {
     int index = 0; // to keep track of the current position in tokeninstance
 
     // Keep reading characters until EOF is encountered
-  // while ((input_char = fgetc(file))) {
-    input_char = fgetc(file);
-    do{
-           if (input_char == '\n') {
-               token.tokeninstance[index] = '\0'; // Null-terminate the token **************
-               nextChar = token.tokeninstance[0];
-               FADriver(token.tokeninstance, token.line_num);
+   while ((input_char = fgetc(file))) {
+       input_char = fgetc(file);
 
-               // Reset the token for the next line
-               index = 0; // Reset index
-               lineCount++; // Increment line count
-               token.line_num++;
-           } else {
-               // Add characters to the token instance array
-               token.tokeninstance[index++] = input_char;
-               // Check for tokeninstance overflow
-               if (index >= MAX_INSTANCE_TOKEN) {
-                   printf("Error: Maximum token size exceeded.\n");
-                   return;
-               }
+       if (input_char == '\n') {
+           token.tokeninstance[index] = '\0'; // Null-terminate the token **************
+           nextChar = token.tokeninstance[0];
+           FADriver(token.tokeninstance, token.line_num);
+
+           // Reset the token for the next line
+           index = 0; // Reset index
+           lineCount++; // Increment line count
+           token.line_num++;
+       } else {
+           // Add characters to the token instance array
+           token.tokeninstance[index++] = input_char;
+           // Check for tokeninstance overflow
+           if (index >= MAX_INSTANCE_TOKEN) {
+               printf("Error: Maximum token size exceeded.\n");
+               return;
            }
-       }while(input_char != EOF);
+       }
 
+   }
 fclose(file);
 }
 
