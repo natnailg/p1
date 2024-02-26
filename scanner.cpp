@@ -32,8 +32,10 @@ int mapingchar(char c) {
         case 'A' ... 'Z': // uppercase letters 'A-Z'
             return LETTER; // LETTER
         case '0' ... '9': // digits '0' to '9'
+            printf("digit ->> %c ", c);
             return DIGIT; // DIGIT
         case '%': // Percent sign '%'
+            printf("mapping %c --> \n",c );
             return PERCENTAGE; // PERCENTAGE
         case '.': // Period '.'
         case '!': // Exclamation mark '!'
@@ -51,8 +53,9 @@ int mapingchar(char c) {
         case '"': // Double quote '"'
             return QUOTATION; // QUOTATION
         case ' ': // White space (space)
-        case '\n': // Newline character
             return WHITESPACE; // WHITESPACE
+        case '\n': // Newline character
+            return WHITESPACE;
         case EOF: // EOF encountered
             return END_OF_FILE; // END_OF_FILE
 //        case 'EOF':
