@@ -1,6 +1,7 @@
 //
 // Created by Admin on 2/14/2024.
 //
+//memset( token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
 
 #include <stdio.h>
 #include "scanner.h"
