@@ -48,6 +48,7 @@ void readFromFile(char* filename) {
            }
        }
           if (input_char == EOF){
+              printf("END of File\n");
               break;
           }
 
