@@ -89,7 +89,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("CAN'T START WITH STAR!! %s %d\n",  S, line_num);
                     return Error;
                 case -5 :
-                    printf("!!must be followed by a digit %s %d\n",  S, line_num);
+                    printf(" found with state 1 must start with a letter then digits  %s %d\n",  S, line_num);
                     return Error;
                 case -6 :
                     printf("????must be followed by a digit %s %d\n",  S, line_num);
@@ -145,7 +145,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
         }
     }
-//        return   printf("End of the string!! %s \n\n", tokenNames[1]);
+        return EOFtk;
 }
 
 
