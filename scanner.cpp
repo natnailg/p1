@@ -92,7 +92,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("!!must be followed by a digit %s %d\n",  S, line_num);
                     return Error;
                 case -6 :
-                    printf("!!!must be followed by a digit %s %d\n",  S, line_num);
+                    printf("????must be followed by a digit %s %d\n",  S, line_num);
                     return Error;
                 default:
                     printf("unknown Error %s %d\n", S, line_num);
