@@ -47,7 +47,7 @@ void readFromFile(char* filename) {
            }
        }
 
-   }while(input_char != 0);// end of while loop
+   }while(input_char != EOF);// end of while loop
 fclose(file);
 }
 
