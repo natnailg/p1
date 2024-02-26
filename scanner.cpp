@@ -52,7 +52,7 @@ int mapingchar(char c) {
         case ' ': // White space (space)
         case '\n': // Newline character
             return WHITESPACE; // WHITESPACE
-        case '\0': // EOF encountered
+        case EOF: // EOF encountered
             return END_OF_FILE; // END_OF_FILE
 //        case 'EOF':
 //            return printf()
