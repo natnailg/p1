@@ -25,7 +25,7 @@ void readFromFile(char* filename) {
     int index = 0; // to keep track of the current position in tokeninstance
 
     // Keep reading characters until EOF is encountered
-    while ((input_char = fgetc(file)) != EOF) {
+    while ((input_char = fgetc(file))) {
 
         if (input_char == '\n') {
             token.tokeninstance[index] = ' '; // Null-terminate the token **************
