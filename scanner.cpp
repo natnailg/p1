@@ -88,11 +88,10 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
-//    memset( token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
 
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
-    while (1) { // Loop until the end of the string ('\0') is reached
+    while (nextChar != EOF) { // Loop until the end of the string ('\0') is reached
         int column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
         printf(" ONE TOP swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
