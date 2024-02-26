@@ -73,9 +73,9 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
     while (1) { // Loop until the end of the string ('\0') is reached
-        printf(" ONE TOP swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
         int column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
+        printf(" ONE TOP swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
 
         if (nextState < 0) {
             switch (nextState) {
