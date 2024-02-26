@@ -26,8 +26,8 @@ void readFromFile(char* filename) {
 
     // Keep reading characters until EOF is encountered
   // while ((input_char = fgetc(file)) != EOF) {
-    input_char = fgetc(file);
-      do{
+
+    while((input_char = fgetc(file))){// end of while loop
           if (input_char == '\n') {
            token.tokeninstance[index] = '\0'; // Null-terminate the token **************
            nextChar = token.tokeninstance[0];
@@ -46,8 +46,11 @@ void readFromFile(char* filename) {
                return;
            }
        }
+          if (input_char == EOF){
+              break;
+          }
 
-   }while(input_char != EOF);// end of while loop
+   }
 fclose(file);
 }
 
