@@ -2,6 +2,7 @@
 // Created by Admin on 2/14/2024.
 //
 #include <stdio.h>
+#include <string.h>
 #include "scanner.h"
 char nextChar;
 
@@ -135,9 +136,11 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             S_index = 0; // Reset the index for S array
 
             //reset the array
-            for (int i = 0; i < 256; i++) {
-                S[i] = '\0'; //***
-            }
+//            for (int i = 0; i < 256; i++) {
+//                S[i] = '\0'; //***
+//            }
+            memset(S, '\0', sizeof(S));
+
             S[0] = nextChar; // Append the character to the string
             column = mapingchar(nextChar); // Get column index using mappingchar function
             nextState = Table[state][column];
