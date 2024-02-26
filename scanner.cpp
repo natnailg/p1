@@ -106,7 +106,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
-//                    printf("%s \n\n", tokenNames[0]);
+                    printf("%s \n\n", tokenNames[0]);
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
