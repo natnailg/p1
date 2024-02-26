@@ -145,7 +145,6 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
         }
     }
-        return EOFtk;
 }
 
 
