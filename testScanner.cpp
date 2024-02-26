@@ -27,7 +27,7 @@ void readFromFile(char* filename) {
     // Keep reading characters until EOF is encountered
     while ((input_char = fgetc(file))) {
 
-        if (input_char == '\n' || input_char == EOF) {
+        if (input_char == '\n' || input_char != EOF) {
             token.tokeninstance[index] = '\0'; // Null-terminate the token **************
             nextChar = token.tokeninstance[0];
             FADriver(token.tokeninstance, token.line_num);
