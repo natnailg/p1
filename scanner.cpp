@@ -11,7 +11,7 @@ const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "E
 int Table [12][12]= { //had to do 12 for the columns
         {1,-1,3,5,10,-2,8,-3,6,-4,0,1001},
         {-5,2,-5,-5,-5,-5,-5,-5,-5,-5,-5,-5},
-        {1002,1002,1002,1002,1002,1002,1002,1002,1002,1002,1002,1002},
+        {1002,2,1002,1002,1002,1002,1002,1002,1002,1002,1002,1002},
         {-5,4,-6,-6,-6,-6,-6,-6,-6,-6,-6,-6},
         {1003,4,1003,1003,1003,1003,1003,1003,1003,1003,1003,1003},
         {1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004},
@@ -141,7 +141,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             S[0] = nextChar; // Append the character to the string
             column = mapingchar(nextChar); // Get column index using mappingchar function
             nextState = Table[state][column];
-//            nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
+            nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
 
             printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c array -> %s\n\n", tokenNames[0], nextState,state,column,nextChar,S);
 
