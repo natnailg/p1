@@ -28,7 +28,7 @@ void readFromFile(char* filename) {
     // Keep reading characters until EOF is encountered
   // while ((input_char = fgetc(file)) != EOF) {
 
-    while((input_char = fgetc(file)) != EOF){// end of while loop
+    while((input_char = fgetc(file))){// end of while loop
           if (input_char == '\n') {
            token.tokeninstance[index] = '\0'; // Null-terminate the token **************
            nextChar = token.tokeninstance[0];
@@ -68,7 +68,7 @@ void removcomments(char *inputfile, char *outputfile) {
     int input_char;
     bool comments = false;
 
-    while ((input_char = fgetc(input_file))) {
+    while ((input_char = fgetc(input_file)) != EOF) {
         if (!comments) {
             if (input_char != '#') {
                 if(input_char != ' ' && input_char != '\t') {
