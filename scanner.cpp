@@ -110,7 +110,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
-                    printf("%s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
+                    printf("---%s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
@@ -140,8 +140,9 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             S[0] = nextChar; // Append the character to the string
             column = mapingchar(nextChar); // Get column index using mappingchar function
             nextState = Table[state][column];
+            nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
 
-            printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
+            printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n\n", tokenNames[0], nextState,state,column,nextChar);
             continue;
         } else {
             // Not in final state yet
