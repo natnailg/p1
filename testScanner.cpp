@@ -93,15 +93,16 @@ void readFromFile(char* filename) {
             if (index < MAX_INSTANCE_TOKEN - 1) {
                 // Read characters into array
                 token.tokeninstance[index++] = input_char;
-                printf("first %s  line %d\n", token.tokeninstance, token.line_num);
+//                printf("first %s  line %d\n", token.tokeninstance, token.line_num);
 
             } else {
                 printf("Error: Maximum token size exceeded.\n");
                 break;
             }
         }
-        FADriver(token.tokeninstance, token.line_num);
     } while (1);
+    FADriver(token.tokeninstance, token.line_num);
+
 
     fclose(file);
 }
