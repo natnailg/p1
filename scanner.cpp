@@ -80,12 +80,13 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     int column;
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
-    while (1) { // Loop until the end of the string ('\0') is reached
+    while (1) { // Loop until the end of the string ('\0') is reached or invalid character
+
         column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
-//        printf(" ONE TOP swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
+
+        // a assurance to break out of the loop if invalid character is used
         if (column == -1){
-            printf("while loop invalid character detected!! %s \n", S );
             break;
         }
         if (nextState < 0) {
@@ -117,12 +118,10 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         if (nextState > 1000) {
            //  Final state reached, return the token
             S[S_index] = '\0'; // Null-terminate the string
-//            printf(" before the swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
             switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
-                    printf("---%s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0],
-                           nextState, state, column, nextChar);
+                    printf("%s\n", tokenNames[0]);
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
@@ -141,31 +140,12 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("%s - Full String: %s    %d\n\n", tokenNames[4], S, line_num);
                     return unknown;
             }
-//
-//            state = 0; // Reset the state to zero
-//            S_index = 0; // Reset the index for S array
-
-            //reset the array
-//            for (int i = 0; i < 256; i++) {
-//                S[i] = '\0'; //***
-//            }
-//            memset(S, '\0', strlen(S));
-//
-//            S[0] = nextChar; // Append the character to the string
-//            column = 0;
-//            column = mapingchar(nextChar); // Get column index using mappingchar function
-//            nextState = Table[state][column];
-//            nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
-// Reset state and S for the next token
+            // resetting the states for the nextchar in the string of chars.
             state = 0;
             S_index = 0;
             nextState=0;
             column=0;
             memset(S, '\0', strlen(S)); // Reset the array to null characters
-
-            //nextChar = tokeninstances[index++]; // Move to the next character
-
-//            printf("outside inside if: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c array -> %s\n\n", tokenNames[0], nextState,state,column,nextChar,S);
 
         } else {
             // Not in final state yet
