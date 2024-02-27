@@ -61,10 +61,10 @@ int mapingchar(char c) {
             return WHITESPACE; // WHITESPACE
         case '\n': // Newline character
             return WHITESPACE;
-        case EOF: // EOF encountered
+        case '\0': // EOF encountered
             return END_OF_FILE; // END_OF_FILE
         default:
-//            printf("mapping %c --> \n",c );
+            printf("invalid character detected!! %c  \n",c );
             return -1;// Unknown character
     }
 }
@@ -77,12 +77,10 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
-    bool end = true;
-    //    memset( token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
 
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
-    while (end == true) { // Loop until the end of the string ('\0') is reached
+    while (1) { // Loop until the end of the string ('\0') is reached
         int column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
 //        printf(" ONE TOP swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
@@ -104,7 +102,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                 case -5 :
                     return Error;
                 case -6 :
-                    printf("????must be followed by a digit %s %d\n",  S, line_num);
+                    printf("must be followed by a digit %s %d\n",  S, line_num);
                     return Error;
                 default:
                     printf("unknown Error %s %d\n", S, line_num);
