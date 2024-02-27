@@ -28,12 +28,6 @@ int Table [12][12]= { //had to do 12 for the columns
 
 int mapingchar(char c) {
     switch ((int)c) {
-//        case 'a' ... 'z': // lowercase letters 'a-z'
-//        case 'A' ... 'Z': // uppercase letters 'A-Z'
-//            return LETTER; // LETTER
-//        case '0' ... '9': // digits '0' to '9'
-//            printf("digit ->> %c ", c);
-//            return DIGIT; // DIGIT
         case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g':
         case 'h': case 'i': case 'j': case 'k': case 'l': case 'm': case 'n':
         case 'o': case 'p': case 'q': case 'r': case 's': case 't': case 'u':
