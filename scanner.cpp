@@ -64,7 +64,7 @@ int mapingchar(char c) {
         case '\0': // EOF encountered
             return END_OF_FILE; // END_OF_FILE
         default:
-            printf("invalid character detected!! %c  \n",c );
+            printf("invalid character detected!! %c \n", c );
             return -1;// Unknown character
     }
 }
@@ -77,14 +77,17 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
-
+    int column;
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
     while (1) { // Loop until the end of the string ('\0') is reached
-        int column = mapingchar(nextChar); // Get column index using mappingchar function
+        column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
 //        printf(" ONE TOP swith: %s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
-
+        if (column == -1){
+            printf("while loop invalid character detected!! %s \n", S );
+            break;
+        }
         if (nextState < 0) {
             switch (nextState) {
                 case -1:
@@ -100,6 +103,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("CAN'T START WITH STAR!! %s %d\n",  S, line_num);
                     return Error;
                 case -5 :
+                    printf("must be a digit %s %d\n",  S, line_num);
                     return Error;
                 case -6 :
                     printf("must be followed by a digit %s %d\n",  S, line_num);
@@ -117,26 +121,26 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
-                    printf("---%s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0], nextState,state,column,nextChar);
+                    printf("---%s ->nextstate %d  -> state %d -> column ->%d -> char -> %c \n", tokenNames[0],
+                           nextState, state, column, nextChar);
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
-                    printf("%s - Full String: %s    %d\n\n",  tokenNames[1] ,S, line_num );
+                    printf("%s - Full String: %s    %d\n\n", tokenNames[1], S, line_num);
                     break;
                 case 1003:
                     token.tokenId = T2_tk;
-                    printf("%s - Full String: %s    %d\n\n",tokenNames[2], S, line_num);
+                    printf("%s - Full String: %s    %d\n\n", tokenNames[2], S, line_num);
                     break;
                 case 1004:
                     token.tokenId = T3_tk;
-                    printf("%s - Full String: %s    %d\n\n",tokenNames[3], S, line_num);
+                    printf("%s - Full String: %s    %d\n\n", tokenNames[3], S, line_num);
                     break;
                 default:
                     token.tokenId = unknown;
-                    printf("%s - Full String: %s    %d\n\n", tokenNames[4], S,line_num);
+                    printf("%s - Full String: %s    %d\n\n", tokenNames[4], S, line_num);
                     return unknown;
             }
-            column = 0;
 //
 //            state = 0; // Reset the state to zero
 //            S_index = 0; // Reset the index for S array
@@ -155,6 +159,8 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 // Reset state and S for the next token
             state = 0;
             S_index = 0;
+            nextState=0;
+            column=0;
             memset(S, '\0', strlen(S)); // Reset the array to null characters
 
             //nextChar = tokeninstances[index++]; // Move to the next character
