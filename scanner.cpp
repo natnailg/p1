@@ -53,7 +53,7 @@ int mapingchar(char c) {
             return QUESTION_MARK; // QUESTION_MARK
         case '$': // Dollar sign '$'
             return DOLLAR_SIGN; // DOLLAR_SIGN
-        case '*': // Asterisk '*'
+        case '*': // Asterisk '*' //
             return STAR; // STAR
         case '"': // Double quote '"'
             return QUOTATION; // QUOTATION
