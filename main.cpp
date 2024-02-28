@@ -58,6 +58,7 @@ int main(int argc, char* argv[]){
     removcomments(Readin, outputfile);
 
     remove(outputfile);
+    remove(Readin);
     return 0;
 
 }// end of main
