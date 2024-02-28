@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "token.h"
-#include "scanner.h"
 
 int main(int argc, char* argv[]){
 
@@ -15,7 +14,7 @@ int main(int argc, char* argv[]){
 
     //reading from file
     FILE* filepointer; //file pointer
-    char filechar;	//get the characters
+
 
 
 //if arg is greater than two, meaning more than one file exit
@@ -50,27 +49,15 @@ int main(int argc, char* argv[]){
             return EXIT_FAILURE;
         }
 
-//        printf("\ncharacters in the file \n");
-//        //loop through and print the characters from file
-//        while((filechar = fgetc(filepointer)) != EOF){
-//                printf("%c", filechar);
-//            }
         fclose(filepointer);
     }//end of else reading from file.
 
 
-
-    //call testScanner()
-//    printf("tooooooto\n");
-//    token_description(tokens);
-
-//    readFromFile(Readin); // working
-
-    // call on the removecomments function and give it a newly created file
+    // call the filter function in testscanner and sending it a file to write the filtered version to.
     char* outputfile = "output";
     removcomments(Readin, outputfile);
 
-//    printf("toke description: %s\n", tokenNames[tokens.tokenId]);
+    remove(outputfile);
     return 0;
 
 }// end of main
