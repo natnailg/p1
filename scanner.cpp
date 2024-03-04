@@ -71,6 +71,8 @@ int mapingchar(char c) {
 }
 
 
+int lines = 1;
+
 tokenID FADriver(char* tokeninstances, int line_num) {
     int state = 0;
     struct Token token;
@@ -89,6 +91,11 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         // a assurance to break out of the loop if invalid character is used
         if (column == -1){
             break;
+        }
+
+        if (nextChar == '\n'){
+            lines++;
+            printf("%d\n", lines);
         }
         if (nextState < 0) {
             switch (nextState) {
