@@ -7,57 +7,6 @@
 #include "scanner.h"
 #include "token.h"
 
-char nextChar; // my global nextChar
-
-// we need a map function here that is going to read in the char, and it's going to be based on what that char is,
-// it's going map it to a number that I decide. > = 0
-
-// Function to read from file and print strings
-//void readFromFile(char* filename) {
-//    FILE *file = fopen(filename, "r"); // Open the file in read mode
-//    if (file == NULL) {
-//        printf("Error opening file.\n");
-//        return;
-//    }
-//
-//    char input_char;
-//    struct Token token;
-//    int lineCount = 1; // Initialize line count to 1
-//    token.line_num = 1;
-//    int index = 0; // to keep track of the current position in tokeninstance
-//
-//    // Keep reading characters until EOF is encountered
-//  // while ((input_char = fgetc(file)) != EOF) {
-//
-//    while((input_char = fgetc(file))){// end of while loop
-//          if (input_char == '\n') {
-//           token.tokeninstance[index] = '\0'; // Null-terminate the token **************
-//           nextChar = token.tokeninstance[0];
-//           FADriver(token.tokeninstance, token.line_num);
-//
-//           // Reset the token for the next line
-//           index = 0; // Reset index
-//           lineCount++; // Increment line count
-//           token.line_num++;
-//       } else {
-//           // Add characters to the token instance array
-//           token.tokeninstance[index++] = input_char;
-//           // Check for tokeninstance overflow
-//           if (index >= MAX_INSTANCE_TOKEN) {
-//               printf("Error: Maximum token size exceeded.\n");
-//               return;
-//           }
-//       }
-//          if (input_char == EOF){
-//              printf("%s\n", tokenNames[0]);
-//              break;
-//          }
-//
-//   }
-//fclose(file);
-//}
-
-
 // Function to read from file and print strings
 void readFromFile(char* filename) {
     FILE *file = fopen(filename, "r"); // Open the file in read mode

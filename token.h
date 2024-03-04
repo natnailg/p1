@@ -8,7 +8,9 @@
 #include "testScanner.h"
 #include "scanner.h"
 const int MAX_INSTANCE_TOKEN = 250;
-extern char nextChar;
+
+extern char nextChar; //global var
+
 //defining token id's using enum
 typedef enum{
     EOFtk= 1001,  // end of file

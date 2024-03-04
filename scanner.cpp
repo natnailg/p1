@@ -2,12 +2,10 @@
 // Created by Admin on 2/14/2024.
 //
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "scanner.h"
 
-
-//
+char nextChar; // my global nextChar calling in scanner
 
 const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
