@@ -41,6 +41,8 @@ void readFromFile(char* filename) {
             // Check for buffer overflow
             if (index < MAX_INSTANCE_TOKEN - 1) {
                 // Read characters into array
+                token.tokeninstance[index++] = input_char;
+
             } else {
                 printf("Error: Maximum token size exceeded.\n");
                 break;
