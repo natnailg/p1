@@ -18,8 +18,9 @@ typedef enum{
     Error = -1, // for any state that is less than 0
     unknown = 0
 }tokenID;
+
 extern const char* tokenNames[];
-//const char* tokenNames[] = {"EOF token","T1 token","T2 token", "T2 token"};
+
 
 // for each token we are going to need the TokenID, TokenInstance, line#
 struct Token{
@@ -27,7 +28,6 @@ struct Token{
     char tokeninstance[MAX_INSTANCE_TOKEN];  // store them in an array
     int line_num; // for the line number
 };
-
 
 
 
