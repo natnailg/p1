@@ -73,6 +73,7 @@ int mapingchar(char c, int* line) {
     }
 }
 
+int line = 1;
 
 // Tokenizing the string characters using the table, this function will return the token of characters
 // if it is an error/ unknown character it will print and break.
@@ -84,7 +85,7 @@ tokenID Scanner(char* tokeninstances, int line_num) {
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
     int column;
-    int line = 1;
+
 
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 
