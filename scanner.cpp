@@ -87,6 +87,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     while (1) {
 
         if (nextChar == '\n'){
+            printf("next line encounterd\n");
             lines++;
         }
 
