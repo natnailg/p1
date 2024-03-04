@@ -79,14 +79,14 @@ Token Scanner (int line_num) {
     Token token;
     int nextState;
     token.line_num = line_num;
-    //char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
-    int S_index = 0; // Index for S array
-    int column;
+
+    //memset(S, '\0', strlen(S)); // Reset the array to null characters
+    memset(token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
 
     while (1) { // Loop until the end of the string ('\0') is reached or invalid character
 
-        column = mapingchar(nextChar); // Get column index using mappingchar function
+        int column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
 
         // assurance to break out of the loop if invalid character is used
@@ -119,18 +119,18 @@ Token Scanner (int line_num) {
                     exit(EXIT_FAILURE);
             }
         }
-//
+
         if (nextState > 1000) {
             //  Final state reached, return the token
            // S[S_index] = '\0';
             switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
-//                    printf("%s\n", tokenNames[0]);
+                    //printf("%s\n", tokenNames[0]);
                     return token;
                 case 1002:
                     token.tokenId = T1_tk;
-//                    printf("%s  %s    %d\n", tokenNames[1], S, line_num);
+                  //  printf("%s  %s    %d\n", tokenNames[1], S, line_num);
                     return token;
                 case 1003:
                     token.tokenId = T2_tk;
@@ -145,7 +145,6 @@ Token Scanner (int line_num) {
 //                    printf("%s  %s    %d\n", tokenNames[4], S, line_num);
                     return token;
             }
-           // memset(S, '\0', strlen(S)); // Reset the array to null characters
 
         } else {
             // Not in final state yet
