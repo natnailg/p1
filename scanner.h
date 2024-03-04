@@ -8,8 +8,6 @@
 #include "token.h"
 // Forward declaration of tokenID
 
-char nextChar; // my global nextChar
-
 //columns chars setting them their value.
 const int LETTER = 0;
 const int DIGIT = 1;

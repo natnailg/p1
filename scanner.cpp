@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "scanner.h"
-//char nextChar;
+
+char nextChar; // my global nextChar
 
 const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
