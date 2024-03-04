@@ -30,7 +30,8 @@ void readFromFile(char* filename) {
         if (input_char == '\n') {
             // Increment line number
             token.line_num++;
-            continue;
+            token.tokeninstance[index++] = input_char;
+
         } else if (input_char == EOF) {
             // End of file reached, store the last token instance and break the loop
             token.tokeninstance[index] = '\0'; // Null-terminate the token instance
