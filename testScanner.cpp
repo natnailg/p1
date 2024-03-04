@@ -30,6 +30,7 @@ void readFromFile(char* filename) {
         if (input_char == '\n') {
             // Increment line number
             token.line_num++;
+            token.tokeninstance[index++] = input_char;
 
         } else if (input_char == EOF) {
             // End of file reached, store the last token instance and break the loop
@@ -40,7 +41,6 @@ void readFromFile(char* filename) {
             // Check for buffer overflow
             if (index < MAX_INSTANCE_TOKEN - 1) {
                 // Read characters into array
-                 token.tokeninstance[index++] = input_char;
             } else {
                 printf("Error: Maximum token size exceeded.\n");
                 break;
