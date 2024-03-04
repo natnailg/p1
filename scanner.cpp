@@ -87,12 +87,13 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     while (1) {
 
 
-        printf("hello entering \n");
 
-        if (nextChar == '\n'){
-            lines++;
-            printf("heello %d\n", lines);
-        }
+//
+//        if (nextChar == '\n'){
+//            lines++;
+//            printf("heello %d\n", lines);
+/
+//        }
 
         column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
@@ -106,25 +107,25 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         if (nextState < 0) {
             switch (nextState) {
                 case -1:
-                    printf("can't start with a digit! %s %d\n", S, line_num);
+                    printf("can't start with a digit! %s %d\n", S, lines);
                     return Error ;
                 case -2:
-                    printf("semicolone Error!!\n %s %d",  S, line_num);
+                    printf("semicolone Error!!\n %s %d",  S, lines);
                     return Error;
                 case -3:
-                    printf("can't have dollar sign start %s %d\n",  S, line_num);
+                    printf("can't have dollar sign start %s %d\n",  S, lines);
                     return Error;
                 case -4 :
-                    printf("CAN'T START WITH STAR!! %s %d\n",  S, line_num);
+                    printf("CAN'T START WITH STAR!! %s %d\n",  S, lines);
                     return Error;
                 case -5 :
-                    printf("must be a digit %s %d\n",  S, line_num);
+                    printf("must be a digit %s %d\n",  S, lines);
                     return Error;
                 case -6 :
-                    printf("must be followed by a digit %s %d\n",  S, line_num);
+                    printf("must be followed by a digit %s %d\n",  S, lines);
                     return Error;
                 default:
-                    printf("unknown Error %s %d\n", S, line_num);
+                    printf("unknown Error %s %d\n", S, lines);
                     return unknown;
             }
         }
@@ -139,19 +140,19 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
-                    printf("%s - Full String: %s    %d\n\n", tokenNames[1], S, line_num);
+                    printf("%s - Full String: %s    %d\n\n", tokenNames[1], S, lines);
                     break;
                 case 1003:
                     token.tokenId = T2_tk;
-                    printf("%s - Full String: %s    %d\n\n", tokenNames[2], S, line_num);
+                    printf("%s - Full String: %s    %d\n\n", tokenNames[2], S, lines);
                     break;
                 case 1004:
                     token.tokenId = T3_tk;
-                    printf("%s - Full String: %s    %d\n\n", tokenNames[3], S, line_num);
+                    printf("%s - Full String: %s    %d\n\n", tokenNames[3], S, lines);
                     break;
                 default:
                     token.tokenId = unknown;
-                    printf("%s - Full String: %s    %d\n\n", tokenNames[4], S, line_num);
+                    printf("%s - Full String: %s    %d\n\n", tokenNames[4], S, lines);
                     return unknown;
             }
             // resetting the states for the nextchar in the string of chars.
