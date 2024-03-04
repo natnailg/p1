@@ -1,4 +1,4 @@
-//
+//Natnail Gebru
 // Created by Admin on 2/14/2024.
 //
 
@@ -7,9 +7,10 @@
 
 #include "token.h"
 // Forward declaration of tokenID
-//char nextChar; // my global nextchar
 
-//columns chars
+char nextChar; // my global nextChar
+
+//columns chars setting them their value.
 const int LETTER = 0;
 const int DIGIT = 1;
 const int PERCENTAGE = 2;

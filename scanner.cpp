@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "scanner.h"
-char nextChar;
+//char nextChar;
 
 const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
@@ -26,6 +26,7 @@ int Table [12][12]= { //had to do 12 for the columns
 };
 ///
 
+//Map each character to the correct column number it resides in.
 int mapingchar(char c) {
     switch ((int)c) {
         case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g':
@@ -40,29 +41,29 @@ int mapingchar(char c) {
         case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
             return DIGIT;
-        case '%': // Percent sign '%'
-            return PERCENTAGE; // PERCENTAGE
-        case '.': // Period '.'
-        case '!': // Exclamation mark '!'
-            return DOT_OR_EXCLAMATION; // DOT_OR_EXCLAMATION
-        case ',': // Comma ','
-            return COMMA; // COMMA
-        case ';': // Semicolon ';'
-            return SEMICOLON; // SEMICOLON
-        case '?': // Question mark '?'
-            return QUESTION_MARK; // QUESTION_MARK
-        case '$': // Dollar sign '$'
-            return DOLLAR_SIGN; // DOLLAR_SIGN
-        case '*': // Asterisk '*' //
-            return STAR; // STAR
-        case '"': // Double quote '"'
-            return QUOTATION; // QUOTATION
-        case ' ': // White space (space)
-            return WHITESPACE; // WHITESPACE
-        case '\n': // Newline character
+        case '%':
+            return PERCENTAGE;
+        case '.':
+        case '!':
+            return DOT_OR_EXCLAMATION;
+        case ',':
+            return COMMA;
+        case ';':
+            return SEMICOLON;
+        case '?':
+            return QUESTION_MARK;
+        case '$':
+            return DOLLAR_SIGN;
+        case '*':
+            return STAR;
+        case '"':
+            return QUOTATION;
+        case ' ':
             return WHITESPACE;
-        case '\0': // EOF encountered
-            return END_OF_FILE; // END_OF_FILE
+        case '\n':
+            return WHITESPACE;
+        case '\0': //End-of-File
+            return END_OF_FILE;
         default:
             printf("invalid character detected!! %c \n", c );
             return -1;// Unknown character
@@ -89,6 +90,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         if (column == -1){
             break;
         }
+
         if (nextState < 0) {
             switch (nextState) {
                 case -1:
@@ -121,7 +123,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             switch (nextState) {
                 case 1001:
                     token.tokenId = EOFtk;
-                    printf("%s\n", tokenNames[0]);
+                    printf("%s\n", token);
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
