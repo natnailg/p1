@@ -55,6 +55,7 @@ void readFromFile(char* filename) {
 
 
 
+
     fclose(file);
 }
 
