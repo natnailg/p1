@@ -83,6 +83,7 @@ tokenID Scanner(char* tokeninstances, int line_num) {
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
     int column;
+    int line = 0;
 
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 
@@ -91,6 +92,9 @@ tokenID Scanner(char* tokeninstances, int line_num) {
         column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
 
+        if (nextChar == '\n'){
+            line++;
+        }
         // assurance to break out of the loop if invalid character is used
         if (column == -1){
             break;
@@ -99,25 +103,25 @@ tokenID Scanner(char* tokeninstances, int line_num) {
         if (nextState < 0) {
             switch (nextState) {
                 case -1:
-                    printf("can't start with a digit! %s %d\n", S, line_num);
+                    printf("can't start with a digit! %s %d\n", S, line);
                     exit(EXIT_FAILURE);
                 case -2:
-                    printf("semicolone Error!!\n %s %d",  S, line_num);
+                    printf("semicolone Error!!\n %s %d",  S, line);
                     exit(EXIT_FAILURE);
                 case -3:
-                    printf("can't have dollar sign start %s %d\n",  S, line_num);
+                    printf("can't have dollar sign start %s %d\n",  S, line);
                     exit(EXIT_FAILURE);
                 case -4 :
-                    printf("CAN'T START WITH STAR!! %s %d\n",  S, line_num);
+                    printf("CAN'T START WITH STAR!! %s %d\n",  S, line);
                     exit(EXIT_FAILURE);
                 case -5 :
-                    printf("must be a digit %s %d\n",  S, line_num);
+                    printf("must be a digit %s %d\n",  S, line);
                     exit(EXIT_FAILURE);
                 case -6 :
-                    printf("must be followed by a digit %s %d\n",  S, line_num);
+                    printf("must be followed by a digit %s %d\n",  S, line);
                     exit(EXIT_FAILURE);
                 default:
-                    printf("unknown Error %s %d\n", S, line_num);
+                    printf("unknown Error %s %d\n", S, line);
                     exit(EXIT_FAILURE);
             }
         }
