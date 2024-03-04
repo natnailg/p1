@@ -84,7 +84,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
     while (1) { // Loop until the end of the string ('\0') is reached or invalid character
-
+        printf("hellwo entering \n");
         if (nextChar == '\n'){
             lines++;
             printf("heello %d\n", lines);
