@@ -1,7 +1,7 @@
-//
+// Natanail Gebru
 // Created by Admin on 2/14/2024.
 //
-//memset( token.tokeninstance, '\0', MAX_INSTANCE_TOKEN);
+
 #include <string.h>
 #include <stdio.h>
 
@@ -31,8 +31,8 @@ void readFromFile(char* filename) {
         if (input_char == '\n') {
             // Increment line number
             FADriver(token.tokeninstance, token.line_num);
-            memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
-            index = 0;
+//            memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
+//            index = 0;
             token.line_num++;
             continue;
         } else if (input_char == EOF) {
@@ -57,16 +57,13 @@ void readFromFile(char* filename) {
     } while (1);
 
 
-
-
-
     fclose(file);
 }
 
 
 
 //let us get rid of all the comments in, they will start with # and end with one.
-void removcomments(char *inputfile, char *outputfile) {
+void testScanner(char *inputfile, char *outputfile) {
 
     FILE *input_file = fopen(inputfile, "r");
     if (input_file == NULL) {printf("Error opening input file.\n"); return;}
