@@ -136,19 +136,19 @@ tokenID Scanner(char* tokeninstances, int line_num) {
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
-                    printf("%s  %s    %d\n", tokenNames[1], S, line_num);
+                    printf("%s  %s    %d\n", tokenNames[1], S, line);
                     break;
                 case 1003:
                     token.tokenId = T2_tk;
-                    printf("%s  %s    %d\n", tokenNames[2], S, line_num);
+                    printf("%s  %s    %d\n", tokenNames[2], S, line);
                     break;
                 case 1004:
                     token.tokenId = T3_tk;
-                    printf("%s  %s    %d\n", tokenNames[3], S, line_num);
+                    printf("%s  %s    %d\n", tokenNames[3], S, line);
                     break;
                 default:
                     token.tokenId = unknown;
-                    printf("%s  %s    %d\n", tokenNames[4], S, line_num);
+                    printf("%s  %s    %d\n", tokenNames[4], S, line);
                     return unknown;
             }
 
