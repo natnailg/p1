@@ -109,7 +109,7 @@ void readFromFile(char* filename) {
 
 
 
-//let us get rid of all the comments in, they will start with # and end with one.
+//let us get rid of all the comments and whitespaces, with the excpetion of newline. comments will start with # and end with one.
 void removcomments(char *inputfile, char *outputfile) {
 
     FILE *input_file = fopen(inputfile, "r");

@@ -9,8 +9,8 @@
 
 const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
-//FSA Table have row and column ordering as specified in class
-int Table [12][12]= { //had to do 12 for the columns
+//FSA Table have row and column ordering as specified in class, this is the transition table
+int Table [12][12]= {
         {1,-1,3,5,10,-2,8,-3,6,-4,0,1001},
         {-5,2,-5,-5,-5,-5,-5,-5,-5,-5,-5,-5},
         {1002,2,1002,1002,1002,1002,1002,1002,1002,1002,1002,1002},
@@ -25,7 +25,7 @@ int Table [12][12]= { //had to do 12 for the columns
         {1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004}
 
 };
-///
+
 
 //Map each character to the correct column number it resides in.
 int mapingchar(char c) {
@@ -87,6 +87,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
 
+        printf("line ---> %d \n", line_num);
         // a assurance to break out of the loop if invalid character is used
         if (column == -1){
             break;
