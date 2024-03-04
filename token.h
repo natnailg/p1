@@ -19,8 +19,8 @@ typedef enum{
     unknown = 0
 }tokenID;
 
-extern const char* tokenNames[];
 
+extern const char* tokenNames[];
 
 // for each token we are going to need the TokenID, TokenInstance, line#
 struct Token{

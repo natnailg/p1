@@ -8,6 +8,9 @@
 #include "scanner.h"
 #include "token.h"
 
+
+char nextChar;
+
 const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
 FILE* file;
@@ -35,6 +38,7 @@ void readFromFile(char* filename){
             line_num++;
         }
         tokenInfo = Scanner(line_num);
+
 
         printf("%s\t%s\t%d\n", tokenNames[tokenInfo.tokenId], tokenInfo.tokeninstance, tokenInfo.line_num);
 

@@ -6,7 +6,6 @@
 #include <string.h>
 #include "scanner.h"
 
-char nextChar;
 
 //const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
@@ -92,7 +91,7 @@ Token Scanner (int line_num) {
 
         // assurance to break out of the loop if invalid character is used
         if (column == -1){
-            break;
+            exit(EXIT_FAILURE);
         }
 
         if (nextState < 0) {
