@@ -163,5 +163,5 @@ Token Scanner(char* tokeninstances, int line_num) {
         }
 
     }
-    return EOFtk;
+
 }
