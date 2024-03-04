@@ -120,7 +120,7 @@ Token Scanner (int line_num) {
                     exit(EXIT_FAILURE);
             }
         }
-
+//
         if (nextState > 1000) {
             //  Final state reached, return the token
            // S[S_index] = '\0';
