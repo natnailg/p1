@@ -5,7 +5,7 @@
 #include <string.h>
 #include "scanner.h"
 
-char nextChar; // my global nextChar
+
 
 const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
@@ -143,7 +143,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
                     printf("%s - Full String: %s    %d\n\n", tokenNames[4], S, line_num);
                     return unknown;
             }
-            // resetting the states for the nextchar in the string of chars.
+            // resetting the states for the nextChar in the string of chars.
             state = 0;
             S_index = 0;
             nextState=0;
