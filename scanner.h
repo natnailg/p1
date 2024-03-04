@@ -6,7 +6,7 @@
 #define P1_SCANNER_H
 
 #include "token.h"
-
+//
 
 //columns chars setting them their value.
 const int LETTER = 0;
