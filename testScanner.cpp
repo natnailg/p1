@@ -100,8 +100,8 @@ void readFromFile(char* filename) {
                 break;
             }
         }
+        FADriver(token.tokeninstance, token.line_num);
     } while (1);
-    FADriver(token.tokeninstance, token.line_num);
 
 
     fclose(file);
