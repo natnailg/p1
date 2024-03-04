@@ -11,6 +11,7 @@
 // function that reads from the filtered file and calls on the function scanner function
 void readFromFile(char* filename) {
     FILE *file = fopen(filename, "r"); // Open the file in read mode
+
     if (file == NULL) {
         printf("Error opening file.\n");
         return;
@@ -30,15 +31,11 @@ void readFromFile(char* filename) {
         // Check for newline
         if (input_char == '\n') {
             // Increment line number
-
-//            memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
-//            index = 0;
             token.line_num++;
             continue;
         } else if (input_char == EOF) {
             // End of file reached, store the last token instance and break the loop
             token.tokeninstance[index] = '\0'; // Null-terminate the token instance
-            // printf("final %s  %d\n", token.tokeninstance, token.line_num);
             Scanner(token.tokeninstance, token.line_num);
             break;
 
@@ -47,8 +44,6 @@ void readFromFile(char* filename) {
             if (index < MAX_INSTANCE_TOKEN - 1) {
                 // Read characters into array
                 token.tokeninstance[index++] = input_char;
-//                printf("first %s  line %d\n", token.tokeninstance, token.line_num);
-
             } else {
                 printf("Error: Maximum token size exceeded.\n");
                 break;
