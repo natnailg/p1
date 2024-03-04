@@ -21,7 +21,8 @@ const int QUOTATION = 9;
 const int WHITESPACE = 10;
 const int END_OF_FILE = 11;
 
-int mapingchar(char ); //mapping switch statement
+//int mapingchar(char ); //mapping switch statement
+int mapingchar(char , int*);
 tokenID Scanner(char*, int );
 
 #endif

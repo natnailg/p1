@@ -29,7 +29,7 @@ int Table [12][12]= { //had to do 12 for the columns
 
 
 // mapping the character to the correct column
-int mapingchar(char c) {
+int mapingchar(char c, int* line) {
     switch ((int)c) {
         case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g':
         case 'h': case 'i': case 'j': case 'k': case 'l': case 'm': case 'n':
@@ -63,6 +63,7 @@ int mapingchar(char c) {
         case ' ':
             return WHITESPACE;
         case '\n':
+            *line++;
             return WHITESPACE;
         case '\0': // EOF encountered
             return END_OF_FILE;
@@ -83,18 +84,15 @@ tokenID Scanner(char* tokeninstances, int line_num) {
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
     int column;
-    int line = 0;
+    int line = 1;
 
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 
     while (1) { // Loop until the end of the string ('\0') is reached or invalid character
 
-        column = mapingchar(nextChar); // Get column index using mappingchar function
+        column = mapingchar(nextChar, &line); // Get column index using mappingchar function
         nextState = Table[state][column];
 
-        if (nextChar == '\n'){
-            line++;
-        }
         // assurance to break out of the loop if invalid character is used
         if (column == -1){
             break;
