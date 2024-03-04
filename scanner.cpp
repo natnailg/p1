@@ -63,7 +63,6 @@ int mapingchar(char c, int* line) {
         case ' ':
             return WHITESPACE;
         case '\n':
-            *line++;
             return WHITESPACE;
         case '\0': // EOF encountered
             return END_OF_FILE;
@@ -86,7 +85,6 @@ tokenID Scanner(char* tokeninstances, int line_num) {
     int S_index = 0; // Index for S array
     int column;
 
-
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 
     while (1) { // Loop until the end of the string ('\0') is reached or invalid character
@@ -97,6 +95,10 @@ tokenID Scanner(char* tokeninstances, int line_num) {
         // assurance to break out of the loop if invalid character is used
         if (column == -1){
             break;
+        }
+
+        if (nextChar== '\n' ){
+            line++;
         }
 
         if (nextState < 0) {
