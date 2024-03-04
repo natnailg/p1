@@ -126,7 +126,6 @@ tokenID Scanner(char* tokeninstances, int line_num) {
                     return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
-                    printf("%s ---> %s", token, token.tokenId = T1_tk);
                     printf("%s  %s    %d\n", token, S, line_num);
                     break;
                 case 1003:
