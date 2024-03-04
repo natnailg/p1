@@ -85,6 +85,11 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 //
     while (1) { // Loop until the end of the string ('\0') is reached or invalid character
 
+        if (nextChar == '\n'){
+            lines++;
+            printf("heello %d\n", lines);
+        }
+
         column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
 
@@ -93,10 +98,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             break;
         }
 
-        if (nextChar == '\n'){
-            lines++;
-            printf("%d\n", lines);
-        }
+
         if (nextState < 0) {
             switch (nextState) {
                 case -1:
