@@ -7,5 +7,5 @@
 
 void readFromFile(char* file); // read from file and map
 void testScanner(char *, char  *); //remove comments and write to new file.
-
+FILE *file;
 #endif
