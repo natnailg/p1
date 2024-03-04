@@ -6,6 +6,8 @@
 #define P1_SCANNER_H
 
 #include "token.h"
+// Forward declaration of tokenID
+//char nextChar; // my global nextchar
 
 //columns chars
 const int LETTER = 0;
@@ -21,8 +23,10 @@ const int QUOTATION = 9;
 const int WHITESPACE = 10;
 const int END_OF_FILE = 11;
 
-//int mapingchar(char ); //mapping switch statement
-int mapingchar(char , int*);
-tokenID Scanner(char*, int );
+int mapingchar(char ); //mapping switch statement
+tokenID token(int , const char* );
+tokenID FADriver(char*, int );
+void token_description(struct Token);
+//tokenID FADriver();
 
 #endif

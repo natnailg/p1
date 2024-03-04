@@ -9,6 +9,7 @@
 
 const int MAX_INSTANCE_TOKEN = 250;
 extern char nextChar;
+
 //defining token id's using enum
 typedef enum{
     EOFtk= 1001,  // end of file
@@ -18,8 +19,6 @@ typedef enum{
     Error = -1, // for any state that is less than 0
     unknown = 0
 }tokenID;
-
-
 extern const char* tokenNames[];
 
 // for each token we are going to need the TokenID, TokenInstance, line#
@@ -28,6 +27,7 @@ struct Token{
     char tokeninstance[MAX_INSTANCE_TOKEN];  // store them in an array
     int line_num; // for the line number
 };
+
 
 
 
