@@ -30,6 +30,9 @@ void readFromFile(char* filename) {
         // Check for newline
         if (input_char == '\n') {
             // Increment line number
+            FADriver(token.tokeninstance, token.line_num);
+//            memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
+//            index = 0;
             token.line_num++;
             continue;
         } else if (input_char == EOF) {
@@ -49,10 +52,10 @@ void readFromFile(char* filename) {
                 printf("Error: Maximum token size exceeded.\n");
                 break;
             }
-            FADriver(token.tokeninstance, token.line_num);
         }
 
     } while (1);
+
 
 
 
