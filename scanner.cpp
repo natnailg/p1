@@ -92,7 +92,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
 //        if (nextChar == '\n'){
 //            lines++;
 //            printf("heello %d\n", lines);
-/
+//
 //        }
 
         column = mapingchar(nextChar); // Get column index using mappingchar function
