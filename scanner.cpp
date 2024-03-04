@@ -86,14 +86,9 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     // loop through until EOF is detected.
     while (1) {
 
-
-
-//
-//        if (nextChar == '\n'){
-//            lines++;
-//            printf("heello %d\n", lines);
-//
-//        }
+        if (nextChar == '\n'){
+            lines++;
+        }
 
         column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
