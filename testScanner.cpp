@@ -81,11 +81,11 @@ void readFromFile(char* filename) {
         if (input_char == '\n') {
             // Increment line number
             token.line_num++;
+            FADriver(token.tokeninstance, token.line_num);
             continue;
         } else if (input_char == EOF) {
             // End of file reached, store the last token instance and break the loop
             token.tokeninstance[index] = '\0'; // Null-terminate the token instance
-            FADriver(token.tokeninstance, token.line_num);
             // printf("final %s  %d\n", token.tokeninstance, token.line_num);
             break;
 
