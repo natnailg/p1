@@ -49,8 +49,9 @@ void readFromFile(char* filename) {
                 printf("Error: Maximum token size exceeded.\n");
                 break;
             }
+            FADriver(token.tokeninstance, token.line_num);
         }
-        FADriver(token.tokeninstance, token.line_num);
+
     } while (1);
 
 
