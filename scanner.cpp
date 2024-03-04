@@ -75,7 +75,7 @@ int mapingchar(char c) {
 
 // Tokenizing the string characters using the table, this function will return the token of characters
 // if it is an error/ unknown character it will print and break.
-Token Scanner(char* tokeninstances, int line_num) {
+tokenID Scanner (char* tokeninstances, int line_num) {
     int state = 0;
     struct Token token;
     int nextState;
@@ -132,11 +132,11 @@ Token Scanner(char* tokeninstances, int line_num) {
                     return token;
                 case 1002:
                     token.tokenId = T1_tk;
-                    printf("%s  %s    %d\n", token, S, line_num);
+                    printf("%s  %s    %d\n", tokenNames[1], S, line_num);
                     break;
                 case 1003:
                     token.tokenId = T2_tk;
-                    printf("%s  %s    %d\n", token, S, line_num);
+                    printf("%s  %s    %d\n", tokenNames[2], S, line_num);
                     break;
                 case 1004:
                     token.tokenId = T3_tk;
@@ -163,5 +163,5 @@ Token Scanner(char* tokeninstances, int line_num) {
         }
 
     }
-
+    return EOFtk;
 }

@@ -22,6 +22,6 @@ const int WHITESPACE = 10;
 const int END_OF_FILE = 11;
 
 int mapingchar(char ); //mapping switch statement
-Token Scanner(char*, int );
+tokenID Scanner(char*, int );
 
 #endif
