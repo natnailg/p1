@@ -1,4 +1,4 @@
-//Natnail Gebru
+//
 // Created by Admin on 2/14/2024.
 //
 
@@ -6,9 +6,10 @@
 #define P1_SCANNER_H
 
 #include "token.h"
+// Forward declaration of tokenID
+//char nextChar; // my global nextchar
 
-
-//columns chars setting them their value.
+//columns chars
 const int LETTER = 0;
 const int DIGIT = 1;
 const int PERCENTAGE = 2;
@@ -23,10 +24,9 @@ const int WHITESPACE = 10;
 const int END_OF_FILE = 11;
 
 int mapingchar(char ); //mapping switch statement
-//tokenID token(int , const char* );
-//tokenID FADriver(char*, int );
-tokenID FADriver(char* tokeninstances, int line_num);
+tokenID token(int , const char* );
+tokenID FADriver(char*, int );
+void token_description(struct Token);
 //tokenID FADriver();
-//tokenID FADriver( int line_num);
 
 #endif

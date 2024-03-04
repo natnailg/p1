@@ -4,13 +4,12 @@
 #include <stdio.h>
 #include <string.h>
 #include "scanner.h"
-
-char nextChar; // my global nextChar calling in scanner
+char nextChar;
 
 const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
-//FSA Table have row and column ordering as specified in class, this is the transition table
-int Table [12][12]= {
+//FSA Table have row and column ordering as specified in class
+int Table [12][12]= { //had to do 12 for the columns
         {1,-1,3,5,10,-2,8,-3,6,-4,0,1001},
         {-5,2,-5,-5,-5,-5,-5,-5,-5,-5,-5,-5},
         {1002,2,1002,1002,1002,1002,1002,1002,1002,1002,1002,1002},
@@ -25,9 +24,8 @@ int Table [12][12]= {
         {1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004,1004}
 
 };
+///
 
-
-//Map each character to the correct column number it resides in.
 int mapingchar(char c) {
     switch ((int)c) {
         case 'a': case 'b': case 'c': case 'd': case 'e': case 'f': case 'g':
@@ -42,29 +40,29 @@ int mapingchar(char c) {
         case '0': case '1': case '2': case '3': case '4':
         case '5': case '6': case '7': case '8': case '9':
             return DIGIT;
-        case '%':
-            return PERCENTAGE;
-        case '.':
-        case '!':
-            return DOT_OR_EXCLAMATION;
-        case ',':
-            return COMMA;
-        case ';':
-            return SEMICOLON;
-        case '?':
-            return QUESTION_MARK;
-        case '$':
-            return DOLLAR_SIGN;
-        case '*':
-            return STAR;
-        case '"':
-            return QUOTATION;
-        case ' ':
+        case '%': // Percent sign '%'
+            return PERCENTAGE; // PERCENTAGE
+        case '.': // Period '.'
+        case '!': // Exclamation mark '!'
+            return DOT_OR_EXCLAMATION; // DOT_OR_EXCLAMATION
+        case ',': // Comma ','
+            return COMMA; // COMMA
+        case ';': // Semicolon ';'
+            return SEMICOLON; // SEMICOLON
+        case '?': // Question mark '?'
+            return QUESTION_MARK; // QUESTION_MARK
+        case '$': // Dollar sign '$'
+            return DOLLAR_SIGN; // DOLLAR_SIGN
+        case '*': // Asterisk '*' //
+            return STAR; // STAR
+        case '"': // Double quote '"'
+            return QUOTATION; // QUOTATION
+        case ' ': // White space (space)
+            return WHITESPACE; // WHITESPACE
+        case '\n': // Newline character
             return WHITESPACE;
-        case '\n':
-            return WHITESPACE;
-        case '\0': //End-of-File
-            return END_OF_FILE;
+        case '\0': // EOF encountered
+            return END_OF_FILE; // END_OF_FILE
         default:
             printf("invalid character detected!! %c \n", c );
             return -1;// Unknown character
@@ -73,7 +71,6 @@ int mapingchar(char c) {
 
 
 tokenID FADriver(char* tokeninstances, int line_num) {
-//tokenID FADriver( int line_num){
     int state = 0;
     struct Token token;
     int nextState;
@@ -81,7 +78,6 @@ tokenID FADriver(char* tokeninstances, int line_num) {
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
     int column;
-//    nextChar = token.tokeninstance[index++];
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
     while (1) { // Loop until the end of the string ('\0') is reached or invalid character
@@ -93,12 +89,11 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         if (column == -1){
             break;
         }
-
         if (nextState < 0) {
             switch (nextState) {
                 case -1:
                     printf("can't start with a digit! %s %d\n", S, line_num);
-                    return Error;
+                    return Error ;
                 case -2:
                     printf("semicolone Error!!\n %s %d",  S, line_num);
                     return Error;
@@ -121,34 +116,35 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         }
 
         if (nextState > 1000) {
-           //  Final state reached, return the token
+            //  Final state reached, return the token
             S[S_index] = '\0'; // Null-terminate the string
             switch (nextState) {
                 case 1001:
-
+                    token.tokenId = EOFtk;
                     printf("%s\n", tokenNames[0]);
                     return EOFtk;
                 case 1002:
-
+                    token.tokenId = T1_tk;
                     printf("%s - Full String: %s    %d\n\n", tokenNames[1], S, line_num);
                     break;
                 case 1003:
-
+                    token.tokenId = T2_tk;
                     printf("%s - Full String: %s    %d\n\n", tokenNames[2], S, line_num);
                     break;
                 case 1004:
-
+                    token.tokenId = T3_tk;
                     printf("%s - Full String: %s    %d\n\n", tokenNames[3], S, line_num);
                     break;
                 default:
-
+                    token.tokenId = unknown;
                     printf("%s - Full String: %s    %d\n\n", tokenNames[4], S, line_num);
                     return unknown;
             }
-            // resetting the states for the nextChar in the string of chars.
+            // resetting the states for the nextchar in the string of chars.
             state = 0;
             S_index = 0;
             nextState=0;
+            column=0;
             memset(S, '\0', strlen(S)); // Reset the array to null characters
 
         } else {
@@ -156,11 +152,8 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             state = nextState;
             S[S_index++] = nextChar; // Append the character to the string
             nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
-//            nextChar = token.tokeninstance[index++];
         }
 
     }
     return EOFtk;
 }
-
-

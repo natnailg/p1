@@ -6,11 +6,9 @@
 #define P1_TOKEN_H
 
 #include "testScanner.h"
-#include "scanner.h"
+
 const int MAX_INSTANCE_TOKEN = 250;
-
-extern char nextChar; //global var
-
+extern char nextChar;
 //defining token id's using enum
 typedef enum{
     EOFtk= 1001,  // end of file
