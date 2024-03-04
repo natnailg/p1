@@ -98,25 +98,25 @@ Token Scanner (int line_num) {
         if (nextState < 0) {
             switch (nextState) {
                 case -1:
-                    printf("can't start with a digit! %s %d\n", line_num);
+                    printf("can't start with a digit! %s %d\n");
                     exit(EXIT_FAILURE);
                 case -2:
-                    printf("semicolone Error!!\n %s %d",   line_num);
+                    printf("semicolone Error!!\n %s %d");
                     exit(EXIT_FAILURE);
                 case -3:
-                    printf("can't have dollar sign start %s %d\n",  line_num);
+                    printf("can't have dollar sign start %s %d\n");
                     exit(EXIT_FAILURE);
                 case -4 :
-                    printf("CAN'T START WITH STAR!! %s %d\n",  line_num);
+                    printf("CAN'T START WITH STAR!! %s %d\n");
                     exit(EXIT_FAILURE);
                 case -5 :
-                    printf("must be a digit %s %d\n",  line_num);
+                    printf("must be a digit %s %d\n");
                     exit(EXIT_FAILURE);
                 case -6 :
-                    printf("must be followed by a digit %s %d\n",  line_num);
+                    printf("must be followed by a digit %s %d\n");
                     exit(EXIT_FAILURE);
                 default:
-                    printf("unknown Error %s %d\n", line_num);
+                    printf("unknown Error %s %d\n");
                     exit(EXIT_FAILURE);
             }
         }
