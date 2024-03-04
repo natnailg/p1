@@ -30,7 +30,7 @@ void readFromFile(char* filename) {
         // Check for newline
         if (input_char == '\n') {
             // Increment line number
-            Scanner(token.tokeninstance, token.line_num);
+
 //            memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
 //            index = 0;
             token.line_num++;
@@ -39,6 +39,7 @@ void readFromFile(char* filename) {
             // End of file reached, store the last token instance and break the loop
             token.tokeninstance[index] = '\0'; // Null-terminate the token instance
             // printf("final %s  %d\n", token.tokeninstance, token.line_num);
+            Scanner(token.tokeninstance, token.line_num);
             break;
 
         } else {
