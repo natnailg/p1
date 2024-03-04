@@ -146,11 +146,6 @@ Token Scanner (int line_num) {
 //                    printf("%s  %s    %d\n", tokenNames[4], S, line_num);
                     return token;
             }
-            // reset the states for the nextchar in the string of chars.
-            state = 0;
-            S_index = 0;
-            nextState=0;
-            column=0;
            // memset(S, '\0', strlen(S)); // Reset the array to null characters
 
         } else {

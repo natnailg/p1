@@ -10,6 +10,7 @@
 
 const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
+FILE* file;
 
 //read from the file and print the necessary requirments of the token.
 void readFromFile(char* filename){
