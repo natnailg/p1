@@ -2,6 +2,7 @@
 // Created by Admin on 2/14/2024.
 //
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "scanner.h"
 
@@ -96,7 +97,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             switch (nextState) {
                 case -1:
                     printf("can't start with a digit! %s %d\n", S, line_num);
-                    return Error ;
+                    return Error;
                 case -2:
                     printf("semicolone Error!!\n %s %d",  S, line_num);
                     return Error;
