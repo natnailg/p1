@@ -74,13 +74,15 @@ int mapingchar(char c) {
 
 
 tokenID FADriver(char* tokeninstances, int line_num) {
+//tokenID FADriver( int line_num){
     int state = 0;
-//    struct Token token;
+    struct Token token;
     int nextState;
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
     int S_index = 0; // Index for S array
     int column;
+//    nextChar = token.tokeninstance[index++];
     nextChar = tokeninstances[index++]; // Initialize nextChar with the first character in tokeninstances
 //
     while (1) { // Loop until the end of the string ('\0') is reached or invalid character
@@ -156,6 +158,7 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             state = nextState;
             S[S_index++] = nextChar; // Append the character to the string
             nextChar = tokeninstances[index++]; // Read the next character from tokeninstances
+//            nextChar = token.tokeninstance[index++];
         }
 
     }

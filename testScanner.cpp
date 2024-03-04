@@ -82,15 +82,22 @@ void readFromFile(char* filename) {
             // Increment line number
             token.line_num++;
             FADriver(token.tokeninstance, token.line_num);
+
+            // Reset tokeninstance and index for the next token
+            memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
+            index = 0;
+
             continue;
         } else if (input_char == EOF) {
             // End of file reached, store the last token instance and break the loop
             token.tokeninstance[index] = '\0'; // Null-terminate the token instance
+            FADriver(token.tokeninstance, token.line_num);
             // printf("final %s  %d\n", token.tokeninstance, token.line_num);
             break;
 
         } else {
             // Check for buffer overflow
+
             if (index < MAX_INSTANCE_TOKEN - 1) {
                 // Read characters into array
                 token.tokeninstance[index++] = input_char;
