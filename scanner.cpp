@@ -87,7 +87,6 @@ tokenID FADriver(char* tokeninstances, int line_num) {
         column = mapingchar(nextChar); // Get column index using mappingchar function
         nextState = Table[state][column];
 
-        printf("line ---> %d \n", line_num);
         // a assurance to break out of the loop if invalid character is used
         if (column == -1){
             break;
