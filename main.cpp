@@ -58,7 +58,7 @@ int main(int argc, char* argv[]){
     char* outputfile = "output";
     testScanner(Readin, outputfile);
 
-    remove(outputfile); // removing the file created that is filtered.
+    //remove(outputfile); // removing the file created that is filtered.
     return 0;
 
 }// end of main
