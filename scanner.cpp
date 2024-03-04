@@ -129,7 +129,7 @@ tokenID Scanner (char* tokeninstances, int line_num) {
                 case 1001:
                     token.tokenId = EOFtk;
                     printf("%s\n", tokenNames[0]);
-                    return token;
+                    return EOFtk;
                 case 1002:
                     token.tokenId = T1_tk;
                     printf("%s  %s    %d\n", tokenNames[1], S, line_num);
@@ -145,7 +145,7 @@ tokenID Scanner (char* tokeninstances, int line_num) {
                 default:
                     token.tokenId = unknown;
                     printf("%s  %s    %d\n", tokenNames[4], S, line_num);
-                    return token;
+                    return unknown;
             }
 
             // reset the states for the nextchar in the string of chars.
