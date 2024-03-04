@@ -149,7 +149,6 @@ tokenID FADriver(char* tokeninstances, int line_num) {
             state = 0;
             S_index = 0;
             nextState=0;
-            column=0;
             memset(S, '\0', strlen(S)); // Reset the array to null characters
 
         } else {
