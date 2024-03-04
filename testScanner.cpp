@@ -25,23 +25,28 @@ void readFromFile(char* filename) {
     memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
 
     do {
+
         // Read a character from the file
         input_char = fgetc(file);
 
         // Check for newline
         if (input_char == '\n') {
+
             // Increment line number
             token.line_num++;
             continue;
+
         } else if (input_char == EOF) {
+
             // End of file reached, store the last token instance and break the loop
             token.tokeninstance[index] = '\0'; // Null-terminate the token instance
-            Scanner(token.tokeninstance, token.line_num);
             break;
 
         } else {
+
             // Check for buffer overflow
             if (index < MAX_INSTANCE_TOKEN - 1) {
+
                 // Read characters into array
                 token.tokeninstance[index++] = input_char;
             } else {
@@ -52,6 +57,8 @@ void readFromFile(char* filename) {
 
     } while (1);
 
+    //scanner call
+    Scanner(token.tokeninstance, token.line_num);
 
     fclose(file);
 }
