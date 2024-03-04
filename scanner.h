@@ -24,7 +24,7 @@ const int WHITESPACE = 10;
 const int END_OF_FILE = 11;
 
 int mapingchar(char ); //mapping switch statement
-tokenID FADriver(char*, int );
-//tokenID FADriver();
+tokenID Scanner(char*, int );
+//tokenID Scanner();
 
 #endif

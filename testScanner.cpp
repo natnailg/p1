@@ -7,8 +7,9 @@
 #include "scanner.h"
 #include "token.h"
 
-// Function to read from file and print strings
+// Function to read from file and print and stores the string of characters.
 void readFromFile(char* filename) {
+
     FILE *file = fopen(filename, "r"); // Open the file in read mode
     if (file == NULL) {
         printf("Error opening file.\n");
@@ -49,7 +50,7 @@ void readFromFile(char* filename) {
         }
     } while (1);
 
-    FADriver(token.tokeninstance, token.line_num);
+    Scanner(token.tokeninstance, token.line_num);
 
 
     fclose(file);

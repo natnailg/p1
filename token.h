@@ -28,7 +28,4 @@ struct Token{
     int line_num; // for the line number
 };
 
-
-
-
 #endif
