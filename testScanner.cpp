@@ -8,7 +8,7 @@
 #include "scanner.h"
 #include "token.h"
 
-// Function to read from file and stores the character in to struct array.
+// function that reads from the filtered file and calls on the function scanner function
 void readFromFile(char* filename) {
     FILE *file = fopen(filename, "r"); // Open the file in read mode
     if (file == NULL) {
@@ -30,7 +30,7 @@ void readFromFile(char* filename) {
         // Check for newline
         if (input_char == '\n') {
             // Increment line number
-
+            Scanner(token.tokeninstance, token.line_num);
 //            memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
 //            index = 0;
             token.line_num++;
@@ -54,15 +54,11 @@ void readFromFile(char* filename) {
             }
         }
 
-        token = FADriver(token.line_num);
-        printf("%s\t%s\t%d\n", tokenNames[token.tokenId], token.tokeninstance, token.line_num);
-
     } while (1);
 
 
     fclose(file);
 }
-
 
 
 //gets rid of all the comments in it and newlines, and print it to a new file and pass it to a function
@@ -100,54 +96,3 @@ void testScanner(char *inputfile, char *outputfile) {
 
 }
 
-//
-//void readFromFile(char* filename) {
-//    FILE *file = fopen(filename, "r"); // Open the file in read mode
-//    if (file == NULL) {
-//        printf("Error opening file.\n");
-//        return;
-//    }
-//
-//    char input_char;
-//    struct Token token;
-//    token.line_num = 1;
-//    int index = 0; // to keep track of the current position in tokeninstance
-//
-//    memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
-//
-//    do {
-//        // Read a character from the file
-//        input_char = fgetc(file);
-//
-//        // Check for newline
-//        if (input_char == '\n') {
-//            // Increment line number
-//            FADriver(token.tokeninstance, token.line_num);
-////            memset(token.tokeninstance, 0, MAX_INSTANCE_TOKEN);
-////            index = 0;
-//            token.line_num++;
-//            continue;
-//        } else if (input_char == EOF) {
-//            // End of file reached, store the last token instance and break the loop
-//            token.tokeninstance[index] = '\0'; // Null-terminate the token instance
-//            // printf("final %s  %d\n", token.tokeninstance, token.line_num);
-//            break;
-//
-//        } else {
-//            // Check for buffer overflow
-//            if (index < MAX_INSTANCE_TOKEN - 1) {
-//                // Read characters into array
-//                token.tokeninstance[index++] = input_char;
-////                printf("first %s  line %d\n", token.tokeninstance, token.line_num);
-//
-//            } else {
-//                printf("Error: Maximum token size exceeded.\n");
-//                break;
-//            }
-//        }
-//
-//    } while (1);
-//
-//
-//    fclose(file);
-//}

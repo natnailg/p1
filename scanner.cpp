@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <string.h>
 #include "scanner.h"
-char nextChar;
+
+//char nextChar;
 
 const char* tokenNames[] = {"EOF token",  "T1 token", "T2 token", "T3 token", "Error token","Unknown token"};
 
@@ -70,9 +71,9 @@ int mapingchar(char c) {
 }
 
 
-tokenID FADriver(char* tokeninstances, int line_num) {
+tokenID Scanner(char* tokeninstances, int line_num) {
     int state = 0;
-    struct Token token;
+  //  struct Token token;
     int nextState;
     char S[256] = ""; // Assuming maximum token length of 255 characters
     int index = 0; // Index for tokeninstances
