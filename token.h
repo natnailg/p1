@@ -32,4 +32,3 @@ struct Token{
 
 
 #endif
-//string tokenNames[] = {"T1 token", "T1 token", "T1 token"};

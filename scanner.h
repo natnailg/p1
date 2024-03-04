@@ -6,8 +6,6 @@
 #define P1_SCANNER_H
 
 #include "token.h"
-// Forward declaration of tokenID
-//char nextChar; // my global nextchar
 
 //columns chars
 const int LETTER = 0;
